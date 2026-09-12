@@ -1,109 +1,14 @@
-<!DOCTYPE html>
-<html lang="pt-BR">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Saúde Virtual - Ellen Isabelly Gama 2026</title>
-<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"/>
-<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
-<style>
-*{margin:0;box-sizing:border-box;font-family:Arial,sans-serif}
-body{background:#f0f2ff}
-header{background:linear-gradient(90deg,#5b2bb6,#9d6bff);color:#fff;padding:16px;text-align:center}
-header h1{font-size:15px;line-height:1.4}
-nav{display:flex;gap:6px;padding:10px;background:#fff;overflow:auto;position:sticky;top:0;z-index:99}
-nav button{flex:1;min-width:80px;padding:10px;border:none;border-radius:12px;background:#ece8ff;font-weight:bold;font-size:12px}
-.card{background:#fff;margin:12px;padding:14px;border-radius:18px;box-shadow:0 6px 18px #0001}
-.btn{width:100%;padding:14px;border:none;border-radius:12px;background:#5b2bb6;color:#fff;font-weight:bold;margin-top:10px;font-size:14px}
-.btn:active{transform:scale(0.98)}
-input,select{width:100%;padding:13px;border:1px solid #ddd;border-radius:12px;margin-top:8px}
-#map{height:480px;border-radius:14px;margin-top:10px}
-.badge{background:#e9e3ff;padding:6px 12px;border-radius:20px;font-size:12px;display:inline-block;margin:3px}
-.food-img{width:100%;height:140px;object-fit:cover;border-radius:12px}
-.grid2{display:grid;grid-template-columns:1fr 1fr;gap:10px}
-.recipe{background:#f8f6ff;padding:10px;border-radius:12px;margin-top:8px}
-</style>
-</head>
+<!DOCTYPE html><html lang="pt-BR"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Ellen Isabelly - Gama 2026</title>
+<style>*{margin:0;box-sizing:border-box;font-family:Arial}body{background:#f0f2ff}header{background:linear-gradient(90deg,#5b2bb6,#9d6bff);color:#fff;padding:20px;text-align:center}.card{background:#fff;margin:12px;padding:16px;border-radius:18px;box-shadow:0 6px 18px #0001}.btn{display:block;width:100%;padding:18px;text-align:center;border-radius:16px;color:#fff;font-weight:bold;text-decoration:none;margin-top:12px;font-size:16px}</style></head>
 <body>
-<header>
-<h1>SAÚDE E BEM-ESTAR VIRTUAL<br>Ellen Isabelly da Silva Santos<br>GAMA 2026 - TERESINA PI</h1>
-<div id="falaBox" style="background:#ffffff30;padding:10px;border-radius:10px;margin-top:10px;font-size:13px">Oi! Sou assistente da Ellen. Tenho mapa 3D real, preço real de remédios com foto real, receitas com foto e vídeo!</div>
-<button onclick="falar('Site da Ellen Isabelly Gama 2026 com mapa real de Teresina, preco real de remedios com foto real, e receitas com fotos e videos funcionando')" style="margin-top:8px;background:#fff;color:#5b2bb6;border:none;padding:8px 16px;border-radius:20px;font-weight:bold">🔊 Ouvir apresentação</button>
-<p id="loc" style="margin-top:8px;font-size:12px">📍 Localizando Teresina...</p>
-</header>
-
-<nav>
-<button onclick="ir('c1')">🤖 Assistente</button>
-<button onclick="ir('c2')">🥗 Bem-Estar</button>
-<button onclick="ir('c3')">🏋️ Fitness</button>
-<button onclick="ir('c4')">💊 Farmácia REAL</button>
-<button onclick="ir('c5')">🗺️ Mapa 3D</button>
-</nav>
-
-<div class="card" id="c1">
-<h3>🤖 Assistente Virtual 24h</h3>
-<div id="chat" style="background:#f8f6ff;padding:10px;border-radius:12px;max-height:200px;overflow:auto;margin-top:8px">
-<p><b>Assistente:</b> Oi Ellen! Pergunte: dor de cabeça, quero emagrecer, receita fit, remédio...</p>
+<header><h1>SAÚDE E BEM-ESTAR VIRTUAL<br>Ellen Isabelly da Silva Santos<br>GAMA 2026 - TERESINA PI</h1><p>Projeto completo com 6 páginas separadas, fotos reais, vídeos e tutoriais</p></header>
+<div class="card">
+<a class="btn" style="background:#00b894" href="bem-estar.html">🥗 BEM-ESTAR - Receitas, Frutas, Dietas →</a>
+<a class="btn" style="background:#0984e3" href="fitness.html">🏋️ FITNESS - Exercícios com Vídeo →</a>
+<a class="btn" style="background:#e84393" href="farmacia.html">💊 FARMÁCIA - Foto e Preço Real →</a>
+<a class="btn" style="background:#2d3436" href="mapa.html">🗺️ MAPA 3D - Farmácias Teresina →</a>
+<a class="btn" style="background:#e17055" href="mulher.html">👩 SAÚDE DA MULHER - Detalhadíssimo →</a>
+<a class="btn" style="background:#6c5ce7" href="social.html">🤝 ASSISTENTE SOCIAL - Direitos e Ajuda →</a>
 </div>
-<input id="perg" placeholder="Digite sua dúvida...">
-<button class="btn" onclick="responder()">Perguntar - BOTÃO FUNCIONANDO</button>
-</div>
-
-<div class="card" id="c2">
-<h3>🥗 Bem-Estar com FOTOS REAIS e VÍDEOS REAIS</h3>
-<div class="grid2" style="margin-top:10px">
-<button class="btn" style="background:#00b894" onclick="mostraDieta('emagrecer')">🥗 Emagrecer</button>
-<button class="btn" style="background:#0984e3" onclick="mostraDieta('massa')">💪 Ganhar Massa</button>
-<button class="btn" style="background:#d63031" onclick="mostraDieta('diabetes')">🩸 Diabetes</button>
-<button class="btn" style="background:#6c5ce7" onclick="mostraDieta('pressao')">❤️ Pressão</button>
-</div>
-<div id="dietaOut" style="margin-top:12px"></div>
-</div>
-
-<div class="card" id="c3">
-<h3>🏋️ Fitness - BOTÃO FUNCIONANDO</h3>
-<select id="fit" onchange="mostraTreino(this.value)">
-<option value="">Escolha</option>
-<option value="emagrecer">Emagrecer 15min em casa</option>
-<option value="coluna">Dor na coluna</option>
-<option value="joelho">Dor no joelho</option>
-<option value="ansiedade">Ansiedade</option>
-</select>
-<div id="treinoOut"></div>
-</div>
-
-<div class="card" id="c4">
-<h3>💊 Farmácia - PREÇO REAL + FOTO REAL - BOTÃO FUNCIONANDO</h3>
-<input id="remedio" placeholder="Digite: dipirona, losartana, paracetamol, ibuprofeno">
-<button class="btn" style="background:#e84393" onclick="buscaRemedio()">🔍 VER PREÇO REAL E FOTO REAL - CLIQUE AQUI</button>
-<div id="farmOut"></div>
-<p style="font-size:11px;color:#888;margin-top:6px">Fotos reais de caixas de remédios. Preço médio de Teresina - Pague Menos, Drogasil, Globo.</p>
-</div>
-
-<div class="card" id="c5">
-<h3>🗺️ Mapa 3D SATÉLITE REAL - Farmácias, UBS, UPA, Hospitais</h3>
-<button class="btn" style="background:#2d3436" onclick="pegaGPS()">📡 ATIVAR MEU GPS - ACHAR PERTO DE MIM</button>
-<div id="map"></div>
-<p id="mapInfo" style="font-size:12px;margin-top:6px">Mapa real de Teresina com satélite.</p>
-</div>
-
-<div class="card" style="text-align:center"><b>Ellen Isabelly da Silva Santos - Gama 2026</b><br><span style="font-size:12px">Projeto Saúde Virtual com IA - Teresina Piauí</span></div>
-
-<script>
-let lat=-5.0892, lon=-42.8019, map;
-function ir(id){document.getElementById(id).scrollIntoView({behavior:'smooth'})}
-function falar(t){document.getElementById('falaBox').innerText=t; if('speechSynthesis' in window){speechSynthesis.cancel(); let u=new SpeechSynthesisUtterance(t); u.lang='pt-BR'; speechSynthesis.speak(u);}}
-
-function responder(){
- let q=document.getElementById('perg').value.toLowerCase(); if(!q) return;
- let chat=document.getElementById('chat');
- chat.innerHTML+=`<p><b>Você:</b> ${q}</p>`;
- let r="Veja em Bem-Estar e Fitness, tem receita com foto e vídeo!";
- if(q.includes('cabeça')) r="Dor de cabeça: 500ml água, escuro 20min, compressa fria. Se precisar dipirona, veja preço real abaixo em Farmácia REAL.";
- if(q.includes('emagrecer')||q.includes('dieta')) r="Emagrecer: 2L água, caminhada 30min, tire refri. Clique em Emagrecer que tem 3 receitas com FOTO REAL e VÍDEO.";
- if(q.includes('remedio')||q.includes('receita')) r="Digite o remédio em Farmácia REAL que aparece foto real da caixa e preço real de Teresina.";
- chat.innerHTML+=`<p><b>Assistente:</b> ${r}</p>`; falar(r); document.getElementById('perg').value=''; chat.scrollTop=chat.scrollHeight;
-}
-
-const receitas = {
- emagrecer: `
+<div class="card" style="text-align:center"><b>Criado por Ellen Isabelly - Gama 2026</b><br>Com assistente virtual que fala</div>
+</body></html>
