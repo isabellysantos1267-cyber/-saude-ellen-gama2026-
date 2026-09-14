@@ -2,159 +2,300 @@
 <html lang="pt-BR">
 <head>
 <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Ellen Gama 2026 - Saúde Integrada Teresina</title>
+<title>Saúde e Bem-Estar das Pessoas Virtual</title>
 <style>
-*{margin:0;box-sizing:border-box;font-family:Arial}
-body{background:#f3f0ff;padding-bottom:70px}
-header{background:linear-gradient(90deg,#5b2bb6,#9d6bff);color:#fff;padding:12px;text-align:center}
-header h1{font-size:11px;line-height:1.3}
-nav{display:flex;gap:4px;padding:6px;background:#fff;overflow:auto;justify-content:center;border-bottom:1px solid #eee}
-nav button{padding:8px 10px;text-decoration:none;border-radius:8px;background:#ece8ff;color:#5b2bb6;font-weight:bold;font-size:9px;white-space:nowrap;border:none;cursor:pointer}
-nav button.ativo{background:#5b2bb6;color:#fff}
-.secao{display:none}
+*{margin:0;box-sizing:border-box;font-family:Arial,sans-serif}
+body{background:#f0f4f5;color:#333;padding-bottom:70px}
+
+/* Top Bar de Acessibilidade */
+.top-bar{background:#e8f0f2;padding:6px 12px;display:flex;justify-content:space-between;align-items:center;font-size:11px;border-bottom:1px solid #d0dede}
+.top-bar-left, .top-bar-right{display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+.btn-access{background:#006666;color:#fff;border:none;padding:2px 6px;border-radius:4px;font-weight:bold;cursor:pointer;font-size:10px}
+.btn-access-light{background:#fff;color:#006666;border:1px solid #006666;padding:2px 6px;border-radius:4px;font-weight:bold;cursor:pointer;font-size:10px}
+
+/* Header Principal */
+header{background:#fff;padding:12px 20px;border-bottom:1px solid #ddd;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:10px}
+.logo-area{display:flex;align-items:center;gap:10px}
+.logo-icon{background:#00796b;color:#fff;width:38px;height:38px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:18px}
+.logo-text h1{font-size:14px;color:#004d40;line-height:1.2;font-weight:bold}
+.logo-text span{font-size:10px;color:#666}
+
+/* Menu de Navegação */
+nav{display:flex;gap:6px;align-items:center;overflow-x:auto;padding:4px 0}
+nav button{background:none;border:none;color:#00796b;font-weight:bold;font-size:11px;cursor:pointer;padding:6px 10px;border-radius:16px;white-space:nowrap}
+nav button.ativo{background:#00796b;color:#fff}
+.btn-emergencia{background:#d32f2f !important;color:#fff !important}
+.search-box{display:flex;align-items:center;background:#f0f4f5;border-radius:20px;padding:4px 10px;border:1px solid #ccc}
+.search-box input{border:none;background:none;outline:none;font-size:11px;width:160px}
+
+/* Seções */
+.secao{display:none;padding:20px;max-width:1100px;margin:0 auto}
 .secao.ativa{display:block}
-.card{background:#fff;margin:10px;padding:12px;border-radius:10px;box-shadow:0 3px 8px #0001;font-size:10px;line-height:1.5}
-h2{color:#5b2bb6;margin-bottom:6px;font-size:12px}
-.box{background:#f8f6ff;padding:8px;border-radius:8px;margin-top:6px;border:1px solid #eee}
-.box-remedios{background:#e9ffe9;padding:8px;border-radius:8px;margin-top:6px;border-left:3px solid #00b894}
-.box-mulher{background:#ffe0f0;padding:8px;border-radius:8px;margin-top:6px;border-left:3px solid #e84393}
-iframe{width:100%;height:180px;border-radius:8px;border:none;margin-top:8px}
-.mapa{width:100%;height:220px;border:none;border-radius:8px;margin-top:8px}
-.assistente{position:fixed;bottom:8px;right:8px;width:270px;background:#fff;border-radius:12px;box-shadow:0 6px 16px #0003;z-index:200;overflow:hidden}
-.assistente-header{background:linear-gradient(90deg,#5b2bb6,#9d6bff);color:#fff;padding:6px;font-size:9px;font-weight:bold}
-.assistente-body{padding:6px;max-height:140px;overflow:auto;font-size:9px}
-.assistente-input{display:flex;padding:5px;border-top:1px solid #eee}
-.assistente-input input{flex:1;padding:6px;border-radius:6px;border:1px solid #ddd;font-size:9px}
-.assistente-input button{margin-left:3px;padding:6px 8px;border:none;border-radius:6px;background:#5b2bb6;color:#fff;font-weight:bold;font-size:9px;cursor:pointer}
+
+/* Hero / Início */
+.hero{background:linear-gradient(135deg,#e0f2f1,#f5f7f8);padding:24px;border-radius:12px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:20px;border:1px solid #b2dfdb}
+.hero-content{flex:1;min-width:280px}
+.hero-content h2{font-size:26px;color:#004d40;margin-bottom:10px}
+.hero-content p{font-size:13px;color:#444;line-height:1.5;margin-bottom:15px}
+.badge-row{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:12px}
+.badge{background:#e0f2f1;color:#00796b;padding:4px 10px;border-radius:14px;font-size:11px;font-weight:bold;border:1px solid #80cbc4}
+.hero-aviso{font-size:11px;color:#555;display:flex;align-items:center;gap:6px}
+.hero-bot{width:220px;height:220px;background:#b2dfdb;border-radius:50%;display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden;box-shadow:0 8px 20px rgba(0,0,0,0.1)}
+.hero-bot img{width:100%;height:100%;object-fit:cover}
+
+/* Cards de Ação Rápidas */
+.acoes-grid{display:grid;grid-template-columns:repeat(auto-fit, minmax(220px, 1fr));gap:15px;margin-top:20px}
+.acao-card{background:#fff;padding:16px;border-radius:10px;box-shadow:0 2px 6px rgba(0,0,0,0.06);border-top:4px solid #00796b;cursor:pointer;transition:transform 0.2s}
+.acao-card:hover{transform:translateY(-3px)}
+.acao-card.rosa{border-top-color:#c2185b}
+.acao-card.vermelho{border-top-color:#d32f2f}
+.acao-card.azul{border-top-color:#0288d1}
+.acao-card h3{font-size:13px;color:#222;margin-bottom:6px;display:flex;align-items:center;gap:6px}
+.acao-card p{font-size:11px;color:#666;line-height:1.4}
+
+/* Galerias de Alimentação com Fotos */
+.card-conteudo{background:#fff;padding:20px;border-radius:10px;box-shadow:0 3px 10px rgba(0,0,0,0.05);margin-bottom:15px}
+.card-conteudo h2{color:#004d40;font-size:18px;margin-bottom:15px;border-bottom:2px solid #e0f2f1;padding-bottom:8px}
+.galeria-fotos{display:grid;grid-template-columns:repeat(auto-fit, minmax(140px, 1fr));gap:12px;margin-top:12px}
+.foto-item{background:#fafafa;border:1px solid #e0e0e0;border-radius:8px;padding:8px;text-align:center}
+.foto-item img{width:100%;height:110px;object-fit:cover;border-radius:6px;margin-bottom:6px}
+.foto-item span{font-size:11px;font-weight:bold;color:#333;display:block}
+
+iframe{width:100%;height:220px;border-radius:8px;border:none;margin-top:10px}
+
+/* Rodapé */
+footer{background:#e8f0f2;padding:12px 20px;display:flex;justify-content:space-between;align-items:center;font-size:10px;color:#666;border-top:1px solid #d0dede;position:fixed;bottom:0;width:100%}
+
+/* Assistente Flutuante */
+.assistente-flutuante{position:fixed;bottom:45px;right:15px;width:280px;background:#fff;border-radius:12px;box-shadow:0 5px 20px rgba(0,0,0,0.2);z-index:1000;overflow:hidden;border:1px solid #b2dfdb}
+.ast-header{background:#00796b;color:#fff;padding:8px 12px;font-size:11px;font-weight:bold;display:flex;justify-content:space-between}
+.ast-body{padding:10px;max-height:160px;overflow-y:auto;font-size:11px;line-height:1.4}
+.ast-input{display:flex;border-top:1px solid #eee;padding:6px}
+.ast-input input{flex:1;border:1px solid #ccc;border-radius:4px;padding:6px;font-size:11px;outline:none}
+.ast-input button{background:#00796b;color:#fff;border:none;padding:6px 10px;border-radius:4px;margin-left:4px;cursor:pointer;font-size:11px;font-weight:bold}
 </style>
 </head>
 <body>
 
-<header><h1>SAÚDE VIRTUAL - Ellen Isabelly GAMA 2026 Teresina PI</h1></header>
-
-<nav>
-<button onclick="mudarAba('inicio')" id="btn-inicio" class="ativo">🏠 Início</button>
-<button onclick="mudarAba('alimentacao')" id="btn-alimentacao">🥗 Alimentação</button>
-<button onclick="mudarAba('remedios')" id="btn-remedios">💊 Remédios</button>
-<button onclick="mudarAba('academia')" id="btn-academia">🏋️ Academia</button>
-<button onclick="mudarAba('mulher')" id="btn-mulher">👩 Mulher</button>
-<button onclick="mudarAba('mapa')" id="btn-mapa">🗺️ Mapa</button>
-</nav>
-
-<!-- 1. INÍCIO -->
-<div id="inicio" class="secao ativa">
-  <div class="card">
-    <h2>Bem-vinda ao Sistema de Saúde Integrado!</h2>
-    <p>Este portal reúne todas as informações essenciais para a sua apresentação: guias de nutrição com vídeos documentários, farmácias, preços de remédios, treinos detalhados em casa com vídeos práticos, saúde da mulher e mapa de atendimento em Teresina.</p>
-    <br>
-    <p><b>Use o menu superior</b> para alternar instantaneamente entre os temas. A assistente virtual no canto inferior direito está ativa para tirar dúvidas a qualquer momento!</p>
+<!-- BARRA SUPERIOR DE ACESSIBILIDADE -->
+<div class="top-bar">
+  <div class="top-bar-left">
+    <span>Acessibilidade:</span>
+    <button class="btn-access" onclick="mudarFonte(1)">A+</button>
+    <button class="btn-access" onclick="mudarFonte(-1)">A-</button>
+    <button class="btn-access-light">Contraste</button>
+    <button class="btn-access-light">🔊 Libras</button>
+  </div>
+  <div class="top-bar-right">
+    <span>⌨️ Teclado</span>
+    <span>👁️ Alto Contraste</span>
+    <span>❓ Ajuda</span>
   </div>
 </div>
 
-<!-- 2. ALIMENTAÇÃO -->
-<div id="alimentacao" class="secao">
-  <div class="card">
-    <h2>🥗 Guia de Nutrição & Alimentação Saudável</h2>
-    <div class="box">
-      <b>Frutas Inteiras:</b> Morango, abacate, coco, limão, maracujá, kiwi, melão, melancia, mamão e abacaxi.<br>
-      <b>Verduras e Legumes:</b> Espinafre, couve, brócolis, abobrinha, pepino, tomate e berinjela.<br>
-      <b>Cereais e Sementes:</b> Arroz integral, aveia, pão integral, chia e linhaça.<br>
-      <b>Proteínas:</b> Frango sem pele, tilápia, atum, ovos, patinho e queijo cottage.<br><br>
-      🍲 <b>Receita de Sopa (6 porções):</b> 1 cebola, 250g de carne, tomate, 2 batatas, 2 cenouras, 2 mandioquinhas, 12 vagens, macarrão, temperos a gosto e água (15 min na pressão + 5 min com o macarrão).
+<!-- HEADER PRINCIPAL -->
+<header>
+  <div class="logo-area">
+    <div class="logo-icon">🏥</div>
+    <div class="logo-text">
+      <h1>SAÚDE E BEM-ESTAR</h1>
+      <span>DAS PESSOAS VIRTUAL</span>
     </div>
-    <h2>📺 Documentário / Vídeo sobre Nutrição e Hábitos</h2>
+  </div>
+  <nav>
+    <button onclick="mudarAba('inicio')" id="nav-inicio" class="ativo">Início</button>
+    <button onclick="mudarAba('alimentacao')" id="nav-alimentacao">Alimentação</button>
+    <button onclick="mudarAba('remedios')" id="nav-remedios">Buscar Remédios</button>
+    <button onclick="mudarAba('academia')" id="nav-academia">Academia</button>
+    <button onclick="mudarAba('mulher')" id="nav-mulher">Saúde da Mulher</button>
+    <button onclick="mudarAba('mapa')" id="nav-mapa">Mapa Teresina</button>
+    <button class="btn-emergencia" onclick="mudarAba('mapa')">🚨 Emergência 24h</button>
+  </nav>
+  <div class="search-box">
+    <span>🔍</span>
+    <input type="text" placeholder="Buscar por sintoma, remédio...">
+  </div>
+</header>
+
+<!-- 1. INÍCIO (Baseado na imagem solicitada) -->
+<div id="inicio" class="secao ativa">
+  <div class="hero">
+    <div class="hero-content">
+      <h2>Assistente Virtual de Saúde 24h</h2>
+      <p>Olá! Sou a Saúde Virtual, sua assistente inteligente. Fale comigo para entender receitas, buscar medicamentos com o menor preço, interpretar seus exames e cuidar da sua saúde física e mental.</p>
+      <div class="badge-row">
+        <div class="badge">✔ 100% Gratuito e Seguro</div>
+        <div class="badge">♿ Inclusivo • Libras e Áudio</div>
+      </div>
+      <div class="hero-aviso">
+        <span>ℹ️</span> Este serviço apoia, não substitui o atendimento médico presencial. Em emergência ligue 192 (SAMU).
+      </div>
+    </div>
+    <div class="hero-bot">
+      <!-- Imagem da assistente virtual igual ao modelo enviado -->
+      <img src="https://images.unsplash.com/photo-1531746020798-e6953c6e8e04?auto=format&fit=crop&w=400&q=80" alt="Assistente Virtual">
+    </div>
+  </div>
+
+  <h3 style="margin-top:25px;margin-bottom:12px;color:#004d40;font-size:15px">Como podemos ajudar você hoje?</h3>
+  
+  <div class="acoes-grid">
+    <div class="acao-card" onclick="mudarAba('alimentacao')">
+      <h3>🗣️ FALAR COM ASSISTENTE</h3>
+      <p>Fale e receba resposta por voz</p>
+    </div>
+    <div class="acao-card azul" onclick="mudarAba('inicio')">
+      <h3>🔊 OUVIR TELA</h3>
+      <p>Leia a página em áudio</p>
+    </div>
+    <div class="acao-card" onclick="mudarAba('remedios')">
+      <h3>📷 ENVIAR RECEITA</h3>
+      <p>Envie foto e receba explicação</p>
+    </div>
+    <div class="acao-card" onclick="mudarAba('remedios')">
+      <h3>💊 BUSCAR PREÇO MAIS BARATO</h3>
+      <p>Compare preços de remédios</p>
+    </div>
+    <div class="acao-card azul" onclick="mudarAba('mapa')">
+      <h3>📄 ENTENDER MEU EXAME</h3>
+      <p>Explique resultados do exame</p>
+    </div>
+    <div class="acao-card rosa" onclick="mudarAba('mulher')">
+      <h3>🌸 SAÚDE DA MULHER</h3>
+      <p>Ciclo, pré-natal e cuidados</p>
+    </div>
+    <div class="acao-card" onclick="mudarAba('inicio')">
+      <h3>🧠 PRECISO CONVERSAR</h3>
+      <p>Apoio em saúde mental 24h</p>
+    </div>
+    <div class="acao-card vermelho" onclick="mudarAba('mapa')">
+      <h3>🚨 PRECISO DE AJUDA AGORA</h3>
+      <p>Orientações de emergência</p>
+    </div>
+  </div>
+</div>
+
+<!-- 2. ALIMENTAÇÃO (Com as fotos reais enviadas) -->
+<div id="alimentacao" class="secao">
+  <div class="card-conteudo">
+    <h2>🥗 Guia Visual de Nutrição e Alimentos Saudáveis</h2>
+    <p>Conheça os grupos alimentares essenciais para uma rotina equilibrada, com suporte visual detalhado:</p>
+    
+    <h3 style="margin-top:15px;color:#00796b;font-size:13px">1. Gorduras Boas</h3>
+    <div class="galeria-fotos">
+      <div class="foto-item"><img src="https://images.unsplash.com/photo-1474979266404-7eaacbcd87c5?auto=format&fit=crop&w=300&q=80" alt="Azeite"><span>Azeite</span></div>
+      <div class="foto-item"><img src="https://images.unsplash.com/photo-1523049673857-eb18f1d7b578?auto=format&fit=crop&w=300&q=80" alt="Abacate"><span>Abacate</span></div>
+      <div class="foto-item"><img src="https://images.unsplash.com/photo-1587486913049-53fc88980cfc?auto=format&fit=crop&w=300&q=80" alt="Castanhas"><span>Castanhas</span></div>
+      <div class="foto-item"><img src="https://images.unsplash.com/photo-1518563141167-17f01cc16c3d?auto=format&fit=crop&w=300&q=80" alt="Chocolate"><span>Chocolate 70%</span></div>
+    </div>
+
+    <h3 style="margin-top:20px;color:#00796b;font-size:13px">2. Proteínas Essenciais</h3>
+    <div class="galeria-fotos">
+      <div class="foto-item"><img src="https://images.unsplash.com/photo-1604503468506-a8da13d82791?auto=format&fit=crop&w=300&q=80" alt="Frango"><span>Peito de Frango (30g prot)</span></div>
+      <div class="foto-item"><img src="https://images.unsplash.com/photo-1563379091339-03b21ab4a4f8?auto=format&fit=crop&w=300&q=80" alt="Ovos"><span>Ovos Cozidos</span></div>
+      <div class="foto-item"><img src="https://images.unsplash.com/photo-1544025162-d76694265947?auto=format&fit=crop&w=300&q=80" alt="Carne"><span>Carne Bovina (Patinho)</span></div>
+      <div class="foto-item"><img src="https://images.unsplash.com/photo-1519708227418-c8fd9a32b7a2?auto=format&fit=crop&w=300&q=80" alt="Atum"><span>Atum Enlatado</span></div>
+    </div>
+
+    <h3 style="margin-top:20px;color:#00796b;font-size:13px">3. Laticínios e Derivados (Dairy)</h3>
+    <div class="galeria-fotos">
+      <div class="foto-item"><img src="https://images.unsplash.com/photo-1486297678162-eb2a19b0a32d?auto=format&fit=crop&w=300&q=80" alt="Queijo"><span>Queijos Selecionados</span></div>
+      <div class="foto-item"><img src="https://images.unsplash.com/photo-1550583724-b2692b85b150?auto=format&fit=crop&w=300&q=80" alt="Leite"><span>Leite e Iogurtes</span></div>
+      <div class="foto-item"><img src="https://images.unsplash.com/photo-1571212229792-228795c47fe8?auto=format&fit=crop&w=300&q=80" alt="Iogurte Grego"><span>Iogurte Grego</span></div>
+    </div>
+
+    <h3 style="margin-top:20px;color:#00796b;font-size:13px">4. Cereais e Fibras</h3>
+    <div class="galeria-fotos">
+      <div class="foto-item"><img src="https://images.unsplash.com/photo-1586201375761-83865001e31c?auto=format&fit=crop&w=300&q=80" alt="Aveia"><span>Aveia e Fibras</span></div>
+      <div class="foto-item"><img src="https://images.unsplash.com/photo-1536304993881-ff6e9eefa2a6?auto=format&fit=crop&w=300&q=80" alt="Arroz Integral"><span>Arroz Integral</span></div>
+      <div class="foto-item"><img src="https://images.unsplash.com/photo-1540420773420-3366772f4999?auto=format&fit=crop&w=300&q=80" alt="Verduras"><span>Verduras Frescas</span></div>
+    </div>
+
+    <h2 style="margin-top:25px">📺 Documentário de Nutrição e Saúde</h2>
     <iframe src="https://www.youtube.com/embed/YjOV6stAgG0" allowfullscreen></iframe>
   </div>
 </div>
 
 <!-- 3. REMÉDIOS -->
 <div id="remedios" class="secao">
-  <div class="card">
-    <h2>💊 Medicamentos e Valores de Referência</h2>
-    <div class="box-remedios">
-      <b>1. Analgésicos e Anti-inflamatórios:</b> Dipirona, Paracetamol, Ibuprofeno (R$ 4 a R$ 15); Nimesulida (R$ 8 a R$ 25); Dorflex (R$ 6 a R$ 40).<br><br>
-      <b>2. Pressão e Coração:</b> Losartana, Hidroclorotiazida, Captopril, Enalapril (R$ 5 a R$ 20 ou <b>Grátis</b> no Farmácia Popular).<br><br>
-      <b>3. Diabetes e Colesterol:</b> Metformina (R$ 6 a R$ 18 ou grátis governo); Sinvastatina (R$ 12 a R$ 45); Ozempic caneta (R$ 800 a R$ 1100).<br><br>
-      <b>4. Estômago e Outros:</b> Omeprazol (R$ 10 a R$ 35); Simeticona (R$ 6 a R$ 18); Buscopan (R$ 12 a R$ 30+).
+  <div class="card-conteudo">
+    <h2>💊 Consulta de Medicamentos e Preços</h2>
+    <p>Consulte valores médios de referência e farmácias populares parceiras em Teresina:</p>
+    <div style="background:#e0f2f1;padding:12px;border-radius:8px;margin-top:10px;font-size:12px">
+      <b>Analgésicos/Anti-inflamatórios:</b> Dipirona, Paracetamol, Ibuprofeno (R$ 4 a R$ 15).<br>
+      <b>Pressão e Coração:</b> Losartana, Captopril (Grátis ou até R$ 15 na Farmácia Popular).<br>
+      <b>Diabetes e Estômago:</b> Metformina, Omeprazol (R$ 6 a R$ 30).
     </div>
   </div>
 </div>
 
 <!-- 4. ACADEMIA -->
 <div id="academia" class="secao">
-  <div class="card">
-    <h2>🏋️ Treinos e Fortalecimento Muscular</h2>
-    <div class="box">
-      <b>Pernas e Glúteos:</b> Agachamento livre, afundo, ponte pélvica, panturrilha.<br>
-      <b>Membros Superiores:</b> Flexão na parede, tríceps banco, desenvolvimento e rosca direta com halteres leves.<br>
-      <b>Core e Cardio:</b> Prancha isométrica, polichinelo e caminhada estacionária.<br>
-      <b>Terceira Idade:</b> 30 exercícios focados em equilíbrio, força na cadeira e mobilidade para idosos.
-    </div>
-    <h2>📺 Vídeo Prático de Fortalecimento Muscular em Casa</h2>
+  <div class="card-conteudo">
+    <h2>🏋️ Treinamento e Fortalecimento Muscular</h2>
+    <p>Dicas práticas de exercícios funcionais para fazer em casa ou na academia com orientação profissional.</p>
     <iframe src="https://www.youtube.com/embed/OjUDpzMw6gM" allowfullscreen></iframe>
   </div>
 </div>
 
 <!-- 5. MULHER -->
 <div id="mulher" class="secao">
-  <div class="card">
-    <h2>👩 Orientações sobre Saúde da Mulher</h2>
-    <div class="box-mulher">
-      <b>Cólica e TPM:</b> Buscopan, bolsa quente, chás calmantes, magnésio (chocolate 70%, castanhas) e caminhadas leves.<br><br>
-      <b>Gravidez e Cuidados:</b> Alívio de enjoos com gengibre e limão, hidratação constante e controle de inchaço nas pernas.<br><br>
-      <b>Menopausa e Longevidade:</b> Importância de manter amizades, atividades cognitivas e exercícios regulares de fortalecimento ósseo.
-    </div>
-    <h2>📺 Vídeo Especial: Bem-estar Feminino (Hospital Israelita Albert Einstein)</h2>
+  <div class="card-conteudo">
+    <h2>👩 Saúde da Mulher</h2>
+    <p>Orientações completas sobre bem-estar, cuidados no pré-natal, alívio de cólicas e menopausa.</p>
     <iframe src="https://www.youtube.com/embed/ohIS2C_FSw8" allowfullscreen></iframe>
   </div>
 </div>
 
 <!-- 6. MAPA -->
 <div id="mapa" class="secao">
-  <div class="card">
-    <h2>🗺️ Hospitais, Clínicas e Laboratórios em Teresina</h2>
-    <iframe class="mapa" src="https://www.openstreetmap.org/export/embed.html?bbox=-42.88%2C-5.12%2C-42.72%2C-5.05&layer=mapnik&marker=-5.08921%2C-42.8016"></iframe>
-    <div class="box">
-      <b>Hospitais 24h:</b> HGV Frei Serafim SUS, HUT Primavera, São Marcos Miguel Rosa, Unimed Dom Severino.<br><br>
-      <b>Laboratórios & Imagem:</b> Med Imagem Centro Sul e Jóquei, DMI Centro Sul, Multimagem Jóquei.<br><br>
-      <b>Farmácias (Farmácia Popular):</b> Pague Menos Frei Serafim, Drogasil Dom Severino.
-    </div>
+  <div class="card-conteudo">
+    <h2>🗺️ Atendimento de Saúde em Teresina - PI</h2>
+    <iframe style="height:260px" src="https://www.openstreetmap.org/export/embed.html?bbox=-42.88%2C-5.12%2C-42.72%2C-5.05&layer=mapnik&marker=-5.08921%2C-42.8016"></iframe>
+    <p style="font-size:11px;margin-top:10px"><b>Hospitais 24h:</b> HGV Frei Serafim, HUT Primavera, São Marcos, Unimed Dom Severino.</p>
   </div>
 </div>
 
-<!-- ASSISTENTE VIRTUAL FLUTUANTE -->
-<div class="assistente">
-  <div class="assistente-header">🤖 Assistente Virtual</div>
-  <div class="assistente-body" id="chat-body">
-    <div>Olá! Como posso ajudar na sua apresentação hoje?</div>
+<!-- ASSISTENTE FLUTUANTE -->
+<div class="assistente-flutuante">
+  <div class="ast-header"><span>🤖 Assistente Virtual 24h</span></div>
+  <div class="ast-body" id="chat-body">
+    <div>Olá! Como posso ajudar na sua saúde hoje?</div>
   </div>
-  <div class="assistente-input">
-    <input type="text" id="chat-input" placeholder="Digite sua dúvida...">
-    <button onclick="enviarMensagem()">Enviar</button>
+  <div class="ast-input">
+    <input type="text" id="chat-in" placeholder="Digite sua dúvida...">
+    <button onclick="enviarMsg()">Enviar</button>
   </div>
 </div>
+
+<!-- RODAPÉ -->
+<footer>
+  <div>Ministério da Saúde • SUS Digital • LGPD conforme</div>
+  <div>Disponível 24h • Privacidade • Termos de Uso • Suporte</div>
+</footer>
 
 <script>
-function mudarAba(idSecao) {
-  // Esconde todas as seções
-  const secoes = document.querySelectorAll('.secao');
-  secoes.forEach(s => s.classList.remove('ativa'));
-  
-  // Remove a classe ativa de todos os botões
-  const botoes = document.querySelectorAll('nav button');
-  botoes.forEach(b => b.classList.remove('ativo'));
-  
-  // Mostra a seção escolhida e ativa o botão correspondente
-  document.getElementById(idSecao).classList.add('ativa');
-  document.getElementById('btn-' + idSecao).classList.add('ativo');
+function mudarAba(id) {
+  document.querySelectorAll('.secao').forEach(s => s.classList.remove('ativa'));
+  document.querySelectorAll('nav button').forEach(b => b.classList.remove('ativo'));
+  document.getElementById(id).classList.add('ativa');
+  if(document.getElementById('nav-' + id)) {
+    document.getElementById('nav-' + id).classList.add('ativo');
+  }
 }
 
-function enviarMensagem() {
-  const input = document.getElementById('chat-input');
+let fontSizeOffset = 0;
+function mudarFonte(val) {
+  fontSizeOffset += val;
+  document.body.style.fontSize = (11 + fontSizeOffset) + 'px';
+}
+
+function enviarMsg() {
+  const inp = document.getElementById('chat-in');
   const body = document.getElementById('chat-body');
-  if(!input.value.trim()) return;
-  body.innerHTML += `<br><b>Você:</b> ${input.value}<br><b>Assistente:</b> Informações consultadas com sucesso para a apresentação da Ellen Gama!`;
-  input.value = '';
+  if(!inp.value.trim()) return;
+  body.innerHTML += `<br><b>Você:</b> ${inp.value}<br><b>Assistente:</b> Entendido! Estou processando sua solicitação de saúde.`;
+  inp.value = '';
   body.scrollTop = body.scrollHeight;
 }
 </script>
