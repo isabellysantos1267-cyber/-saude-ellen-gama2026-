@@ -15,7 +15,7 @@ nav button.ativo{background:#5b2bb6;color:#fff}
 .sec{display:none}.sec.ativa{display:block}
 .box{background:#f8f6ff;padding:7px;border-radius:8px;margin-top:5px;border:1px solid #eee;font-size:9px;line-height:1.4}
 .preco{background:#e9ffe9;padding:5px;border-radius:6px;border-left:3px solid #00b894;margin-top:3px}
-.junto{background:linear-gradient(90deg,#a29bfe,#6c5ce7);color:#fff;padding:7px;border-radius:8px;margin-top:5px;font-size:9px}
+.junto{background:linear-gradient(90deg,#a29bfe,#6c5ce7);color:#fff;padding:7px;border-radius:8px;margin-top:5px;font-size:9px;line-height:1.4}
 .odonto{background:#e8f8f5;padding:6px;border-radius:8px;border-left:3px solid #00b894;margin-top:5px}
 .psico{background:#f0e6ff;padding:6px;border-radius:8px;border-left:3px solid #9b59b6;margin-top:5px}
 .perna{background:#ffe0f0;padding:5px;border-radius:6px;border-left:3px solid #e84393;margin-top:4px}
@@ -54,46 +54,143 @@ table th{background:#ece8ff}
 </nav>
 
 <div id="tudo" class="sec ativa">
-  <div class="card">
-    <h2>🏠 TUDO JUNTO FINAL DEFINITIVO - APRESENTAÇÃO AMANHÃ</h2>
-    <div class="junto">
-      <b>✅ TUDO QUE VOCÊ MANDOU DESDE O COMEÇO JUNTADO:</b><br>
-      Conteúdo completo de saúde, alimentos, medicamentos, exercícios e mapas de Teresina-PI.
-    </div>
-    <button class="btn" onclick="mostra('mapa')">🗺️ Ver Mapa</button>
-    <button class="btn" style="background:#e84393" onclick="mostra('mulher')">👩 Ver Mulher</button>
-    <button class="btn" style="background:#00b894" onclick="mostra('rem')">💊 Ver Remédios Preços Reais</button>
-  </div>
+<div class="card">
+<h2>🏠 TUDO JUNTO FINAL DEFINITIVO - APRESENTAÇÃO AMANHÃ</h2>
+<div class="junto">
+<b>✅ TUDO QUE VOCÊ MANDOU DESDE O COMEÇO JUNTADO SEM EXCLUIR NADA:</b><br><br>
+🥗 <b>Alimentação & Bem-Estar:</b> Frutas (morango, abacate, coco, limão, maracujá, kiwi, melão, melancia, mamão, abacaxi), Verduras e Legumes (espinafre, couve, brócolis, abobrinha, pepino, tomate, berinjela), Cereais e Fibras (arroz integral, aveia Quaker/Mãe Terra/Mundo Verde, pão integral, batata-doce, mandioca, chia, linhaça), Proteínas (frango sem pele, tilápia, atum, ovos, patinjo, queijo cottage/mussarela), Gorduras boas (azeite, castanhas, abacate em moderação) e Laticínios.<br><br>
+🍲 <b>Sopa Completa (6 porções):</b> 1 cebola, 250g músculo/costela, 1 tomate, 2 batatas, 2 cenouras, 2 mandioquinhas, 12 vagens, 2 xíc. macarrão (argolinha/conchinha), 1 caldo carne, 1 Sazon, pimenta, salsinha, cebolinha, sal e água na pressão por 15 min + macarrão por 5 min.<br><br>
+💊 <b>Remédios & Preços Reais:</b> Analgésicos (Dipirona, Paracetamol, Ibuprofeno R$4-15), Anti-inflamatórios (Nimesulida, Cetoprofeno R$8-25), Pressão (Losartana líder 167mi, Enalapril, Captopril R$5-20 ou grátis Farmácia Popular Pague Menos), Diabetes/Colesterol (Metformina, Sinvastatina, Ozempic R$800-1100), Estômago (Omeprazol R$10-35), Psicotrópicos e Tarjas Pretas.<br><br>
+🤸 <b>Aquecimentos e Mobilidade:</b> Pescoço, ombros, tornozelos, abraço de urso, marcha estacionária, círculos de quadril, passos laterais e chute suave para trás.<br><br>
+🏋️ <b>Academia e Exercícios (Casa + Idosos + Membros):</b> Agachamento, polichinelo, flexão, prancha, 30 exercícios focados na terceira idade (força, equilíbrio, alongamento, hidroginástica), Pernas e glúteos (8), Membros superiores (8), Core (7) e Cardio queima (7).<br><br>
+🗺️ <b>Mapa e Locais Teresina:</b> Hospitais 24h (HGV, HUT, São Marcos), Clínicas (MedImagem, DMI, Multimagem, Augustos), Odonto (Dr Gustavo, Dr Paulo Sérgio, Teresina Odonto), Psicologia (Vitalli, Psicomed, VOP, CAPS, CVV 188).
+</div>
+<button class="btn" onclick="mostra('mapa')">🗺️ Ver Mapa Completo</button>
+<button class="btn" style="background:#e84393" onclick="mostra('mulher')">👩 Ver Saúde da Mulher</button>
+<button class="btn" style="background:#00b894" onclick="mostra('rem')">💊 Ver Remédios e Preços</button>
+</div>
 </div>
 
 <div id="mapa" class="sec">
-  <div class="card">
-    <h2>🗺️ MAPA COMPLETO - Clínicas, Hospitais, Odonto, Psicologia, Farmácias, UBS, Labs</h2>
-    <div class="box">
-      <button class="btn-mapa" style="background:#e74c3c" onclick="window.open('https://www.google.com/maps/search/hospital+teresina+piaui','_blank')">🏥 Hospitais</button>
-      <button class="btn-mapa" style="background:#3498db" onclick="window.open('https://www.google.com/maps/search/clinica+medica+teresina+piaui','_blank')">🏨 Clínicas</button>
-      <button class="btn-mapa" style="background:#00b894" onclick="window.open('https://www.google.com/maps/search/dentista+odonto+teresina+piaui','_blank')">🦷 Odonto</button>
-    </div>
-    <iframe class="mapa" src="https://www.openstreetmap.org/export/embed.html?bbox=-42.88%2C-5.12%2C-42.72%2C-5.05&layer=mapnik&marker=-5.08921%2C-42.8016"></iframe>
-  </div>
+<div class="card">
+<h2>🗺️ MAPA COMPLETO - Clínicas, Hospitais, Odonto, Psicologia, Farmácias, UBS, Labs</h2>
+<div class="box">
+<button class="btn-mapa" style="background:#e74c3c" onclick="window.open('https://www.google.com/maps/search/hospital+teresina+piaui/@-5.08921,-42.8016,13z','_blank')">🏥 Hospitais</button>
+<button class="btn-mapa" style="background:#3498db" onclick="window.open('https://www.google.com/maps/search/clinica+medica+teresina+piaui/@-5.08921,-42.8016,13z','_blank')">🏨 Clínicas</button>
+<button class="btn-mapa" style="background:#00b894" onclick="window.open('https://www.google.com/maps/search/dentista+odonto+teresina+piaui/@-5.08921,-42.8016,13z','_blank')">🦷 Odonto</button>
+<button class="btn-mapa" style="background:#9b59b6" onclick="window.open('https://www.google.com/maps/search/psicologo+psicologia+teresina+piaui/@-5.08921,-42.8016,13z','_blank')">🧠 Psicologia</button>
+<button class="btn-mapa" style="background:#f39c12" onclick="window.open('https://www.google.com/maps/search/farmacia+teresina+piaui/@-5.08921,-42.8016,13z','_blank')">💊 Farmácias</button>
+<button class="btn-mapa" style="background:#e84393" onclick="window.open('https://www.google.com/maps/search/ubs+posto+saude+teresina+piaui/@-5.08921,-42.8016,13z','_blank')">🏥 UBS Grátis</button>
+<button class="btn-mapa" style="background:#2d3436" onclick="window.open('https://www.google.com/maps/search/laboratorio+med+imagem+teresina/@-5.08921,-42.8016,13z','_blank')">🔬 Labs</button>
+</div>
+<iframe class="mapa" src="https://www.openstreetmap.org/export/embed.html?bbox=-42.88%2C-5.12%2C-42.72%2C-5.05&layer=mapnik&marker=-5.08921%2C-42.8016"></iframe>
+<div class="box">
+<b>Hospitais 24h:</b> HGV Frei Serafim SUS, HUT Primavera SUS, São Marcos Miguel Rosa câncer, Unimed Dom Severino, Santa Maria Centro.<br>
+<b>Laboratórios & Imagem:</b> Med Imagem Centro Sul e Jóquei (4004-7910), DMI Centro Sul (3221-0001), Multimagem Jóquei (3025-9600), Augustos Medicina Centro Sul.<br>
+<b>Farmácias Parceiras (Farmácia Popular):</b> Pague Menos Frei Serafim (Losartana e Metformina grátis), Drogasil Dom Severino, Trabalhador João XXIII.
+</div>
+</div>
 </div>
 
 <div id="odonto" class="sec">
-  <div class="card">
-    <h2>🦷 Odonto Preços Reais</h2>
-    <div class="odonto">
-      <b>Avaliação / Limpeza:</b> R$120 - R$250<br>
-      <b>Restauração resina:</b> R$100 - R$220 por dente<br>
-      <b>Canal (Endodontia):</b> R$400 - R$900
-    </div>
-  </div>
+<div class="card">
+<h2>🦷 Clínicas Odontológicas e Preços Reais</h2>
+<div class="odonto">
+<b>Consulta de Avaliação / Limpeza (Profilaxia):</b> R$ 120,00 a R$ 250,00.<br>
+<b>Restaurações de Resina:</b> R$ 100,00 a R$ 220,00 por dente.<br>
+<b>Tratamento de Canal (Endodontia):</b> R$ 400,00 a R$ 900,00 (molares mais caros).<br>
+<b>Consultas de Urgência 24h:</b> Taxa de plantão entre R$ 180,00 e R$ 350,00 (sem procedimentos).<br><br>
+<b>Clínicas de Referência em Teresina:</b><br>
+- Dr. Gustavo Trindade (Jóquei) | Tel: 86 99409-5509<br>
+- Dr. Paulo Sérgio (Centro Norte) | Tel: 86 99478-5356<br>
+- Teresina Odonto (Itararé) | Tel: 86 99565-0356<br>
+- *Opção SUS Grátis:* CEO Centro e UBS nos bairros.
+</div>
+</div>
 </div>
 
-<div id="psico" class="sec"><div class="card"><h2>🧠 Psicologia</h2><div class="psico">Atendimento presencial e online.</div></div></div>
-<div id="mulher" class="sec"><div class="card"><h2>👩 Saúde da Mulher</h2><div class="mulher">Orientações de saúde e bem-estar.</div></div></div>
-<div id="bem" class="sec"><div class="card"><h2>🥗 Bem-Estar</h2><div class="box">Dicas de nutrição e hábitos saudáveis.</div></div></div>
-<div id="rem" class="sec"><div class="card"><h2>💊 Remédios</h2><div class="box">Tabela e comparativo de preços em Teresina.</div></div></div>
-<div id="acad" class="sec"><div class="card"><h2>🏋️ Academia</h2><div class="box">Treinos em casa e mobilidade.</div></div></div>
+<div id="psico" class="sec">
+<div class="card">
+<h2>🧠 Psicologia e Saúde Mental</h2>
+<div class="psico">
+<b>Sessão Individual Particular (50 min):</b> R$ 100,00 a R$ 220,00.<br>
+<b>Pacotes Mensais (4 sessões):</b> R$ 350,00 a R$ 700,00.<br>
+<b>Avaliação Neuropsicológica / Psicopedagógica:</b> R$ 800,00 a R$ 2.000,00 com laudo.<br><br>
+<b>Clínicas em Teresina:</b><br>
+- Clínica Vitalli (Centro Sul) | Tel: 86 99996-7584<br>
+- Clínica Psicomed (Jóquei) | Tel: 86 3232-9552<br>
+- Instituto VOP (Fátima) | Tel: 86 98167-0506<br>
+- *Opções Acessíveis / Grátis:* UNINOVAFAPI (Morada do Sol) R$30-50, CAPS Centro, UBS e CVV 188 (24h grátis).
+</div>
+</div>
+</div>
+
+<div id="mulher" class="sec">
+<div class="card">
+<h2>👩 Saúde da Mulher, Gestação e Bem-Estar</h2>
+<div class="mulher">
+<b>Cólica:</b> Buscopan (R$12-30), Dorflex (R$6-40), bolsa quente, ponte pélvica, chá de camomila.<br>
+<b>TPM:</b> Evitar açúcar/sal refinado, apostar em morango, abacate, chocolate 70%, castanhas (magnésio) e caminhada de 20min.<br>
+<b>Anemia:</b> Espinafre, couve, feijão, beterraba, carne vermelha e laranja (vitamina C).<br>
+<b>Gravidez:</b> Enjoo (gengibre, limão, biscoito de água e sal), azia (leite desnatado, evitar frituras, cabeceira elevada), inchaço nas pernas (elevação, extensão de tornozelo, água 2L, pouco sal).<br>
+<b>Menopausa:</b> Roupas leves, água gelada, evitar pimenta/café/álcool, respiração profunda, iogurte e linhaça.<br>
+<b>Ossos Fortes:</b> Leite, queijo, iogurte, sardinha, sol 15min (vitamina D), agachamento na cadeira e panturrilha para prevenir quedas.
+</div>
+</div>
+</div>
+
+<div id="bem" class="sec">
+<div class="card">
+<h2>🥗 Alimentação, Nutrição e Sopa Saudável</h2>
+<div class="box">
+<b>Frutas Inteiras:</b> Morango, abacate, coco, limão, maracujá, kiwi, melão, melancia, mamão e abacaxi.<br>
+<b>Verduras e Legumes:</b> Espinafre, couve, brócolis, abobrinha, pepino, tomate e berinjela.<br>
+<b>Cereais e Sementes:</b> Arroz integral, aveia (Quaker, Mãe Terra, Mundo Verde, Vitalin), pão integral, chia e linhaça.<br>
+<b>Proteínas (porções de ~30g de proteína):</b> Peito de frango grelhado (100g), 5 ovos medianos, atum enlatado (120g), patinho (100g), queijo cottage (300g), iogurte grego.<br>
+<b>Gorduras Boas:</b> Azeite de oliva, abacate e castanhas em moderação.<br><br>
+🍲 <b>Receita de Sopa (6 porções):</b> 1 cebola picada, 250g de músculo/costela, 1 tomate, 2 batatas, 2 cenouras, 2 mandioquinhas, 12 vagens, 2 xícaras de macarrão (argolinha/conchinha), 1 caldo de carne, 1 Sazon, pimenta, salsinha, cebolinha, sal e água até um pouco mais da metade da pressão (15 min na pressão + 5 min com o macarrão).
+</div>
+</div>
+</div>
+
+<div id="rem" class="sec">
+<div class="card">
+<h2>💊 Guia de Remédios e Preços Reais</h2>
+<div class="box">
+<b>1. Analgésicos e Anti-inflamatórios:</b> Dipirona/Paracetamol/Ibuprofeno (R$4-15), Nimesulida/Diclofenaco (R$8-25), Dorflex/Neosaldina (R$6-40).<br>
+<b>2. Pressão e Coração:</b> Losartana (líder 167mi), Hidroclorotiazida, Captopril, Enalapril (R$5-20 ou GRÁTIS no Farmácia Popular / Pague Menos). Xarelto anticoagulante (R$80-300+).<br>
+<b>3. Diabetes e Colesterol:</b> Metformina/Glibenclamida (R$6-18 ou grátis governo), Sinvastatina/Atorvastatina (R$12-45), Ozempic caneta (R$800-1100).<br>
+<b>4. Estômago e Gases:</b> Omeprazol/Pantoprazol (R$10-35), Simeticona/Domperidona (R$6-18), Buscopan (R$12-30+).<br>
+<b>5. Antibióticos e Tarjas Pretas:</b> Amoxicilina/Azitromicina (R$15-45 receita retida), Fluoxetina/Sertralina (R$15-50), Clonazepam/Alprazolam tarja preta (R$8-25).
+</div>
+</div>
+</div>
+
+<div id="acad" class="sec">
+<div class="card">
+<h2>🏋️ Academia em Casa, Idosos e Membros</h2>
+<div class="box">
+🤸 <b>Aquecimentos:</b><br>
+- <i>Sentados:</i> Pescoço (direita/esquerda e sim), giro de ombros e cotovelos (10x), extensão de tornozelo, abraço de urso.<br>
+- <i>Em pé:</i> Marcha estacionária (30-60s), círculos de quadril, passos laterais, chute suave para trás.<br><br>
+
+🦵 <b>Pernas e Glúteos (8):</b> Agachamento livre, Afundo lunge, Agachamento sumô, Ponte pélvica, Stiff com halteres, Agachamento búlgaro, Elevação de panturrilha, Chute burro (4 apoios).<br><br>
+
+💪 <b>Braços, Peito e Costas (8):</b> Flexão tradicional, Tríceps banco, Flexão diamante, Remada curvada, Desenvolvimento de ombros, Rosca direta, Elevação lateral, Crucifixo inverso.<br><br>
+
+🛡️ Core (7): Prancha isométrica, Crunch abdominal, Abdominal bicicleta, Prancha lateral, Elevação de pernas, Abdominal canivete, Escalador Mountain Climber.<br><br>
+
+🫁 Cardio (7): Polichinelo, Burpee, Salto vertical Squat Jump, Corrida estacionária, Pular corda, Deslocamento lateral rápido, Salto patinador Skater Jump.<br><br>
+
+👵 <b>30 Exercícios para Terceira Idade:</b><br>
+- <i>Membros Inferiores:</i> Agachamento na cadeira, elevação de calcanhar (gêmeos), elevação lateral da perna, chute frontal sentado, extensão de quadril, elevação de joelhos, abdução sentada, pressionar calcanhares.<br>
+- <i>Membros Superiores e Core:</i> Flexão na parede, rosca direta com halteres leves, desenvolvimento sentado, remada com elástico, pressionar as mãos, tríceps na cadeira, prancha na parede, contração abdominal respiratória.<br>
+- <i>Equilíbrio e Coordenação:</i> Apoio unipodal, caminhada em linha reta, passo lateral, elevação cruzada, zigue-zague com almofadas, sentar e levantar sem usar as mãos.<br>
+- <i>Alongamento e Mobilidade:</i> Espreguiçar para o teto, abertura de peito, rotação de ombros, pescoço, alongamento posterior, rotação de tronco, círculos com pulsos e tornozelos.<br>
+- <i>Aeróbico:</i> Caminhada ao ar livre e hidroginástica.
+</div>
+</div>
+</div>
 
 <!-- Widget Assistente Virtual -->
 <div class="assistente">
@@ -101,7 +198,7 @@ table th{background:#ece8ff}
     <span>🤖 Assistente Virtual</span>
   </div>
   <div class="assistente-body" id="chat-body">
-    <div>Olá! Como posso ajudar você hoje?</div>
+    <div>Olá! Como posso ajudar você hoje na sua apresentação de saúde?</div>
   </div>
   <div class="assistente-input">
     <input type="text" id="chat-input" placeholder="Digite sua pergunta...">
@@ -111,19 +208,15 @@ table th{background:#ece8ff}
 
 <script>
 function mostra(idSecao) {
-  // Oculta todas as seções
   const secoes = document.querySelectorAll('.sec');
   secoes.forEach(sec => sec.classList.remove('ativa'));
 
-  // Desativa todos os botões da nav
   const botoes = document.querySelectorAll('nav button');
   botoes.forEach(btn => btn.classList.remove('ativo'));
 
-  // Exibe a seção selecionada
   const secaoAlvo = document.getElementById(idSecao);
   if (secaoAlvo) secaoAlvo.classList.add('ativa');
 
-  // Marca o botão correspondente como ativo
   const btnAlvo = document.getElementById('b-' + idSecao);
   if (btnAlvo) btnAlvo.classList.add('ativo');
 }
@@ -134,11 +227,11 @@ function enviarMensagem() {
   if (!input.value.trim()) return;
 
   const msgUser = document.createElement('div');
-  msgUser.innerHTML = '<b>Você:</b> ' + input.value;
+  msgUser.innerHTML = '<br><b>Você:</b> ' + input.value;
   body.appendChild(msgUser);
 
   const msgBot = document.createElement('div');
-  msgBot.innerHTML = '<b>Assistente:</b> Entendi sua pergunta sobre "' + input.value + '". Em breve entrarei em contato com mais detalhes!';
+  msgBot.innerHTML = '<br><b>Assistente:</b> Excelente pergunta! Todo o conteúdo de Teresina, remédios, treinos e alimentação está integrado e pronto para a apresentação de amanhã da Ellen Gama!';
   body.appendChild(msgBot);
 
   input.value = '';
