@@ -7,9 +7,10 @@
 *{margin:0;box-sizing:border-box;font-family:Arial,sans-serif}
 body{background:#f0f4f8;padding-bottom:70px}
 
-/* TOPO ESTILO GOV.BR / SAÚDE VIRTUAL */
-.topo-gov{background:#fff;border-bottom:1px solid #ddd;padding:4px 15px;font-size:11px;display:flex;justify-content:space-between;align-items:center;color:#333}
+/* TOPO GOV & LOGIN */
+.topo-gov{background:#fff;border-bottom:1px solid #ddd;padding:6px 15px;font-size:11px;display:flex;justify-content:space-between;align-items:center;color:#333}
 .topo-gov span{color:#0073e6;font-weight:bold}
+.user-login-area{cursor:pointer;background:#e2f0d9;padding:3px 8px;border-radius:12px;color:#2d6a4f;font-weight:bold}
 
 header{background:#fff;padding:12px 20px;display:flex;justify-content:space-between;align-items:center;border-bottom:2px solid #e1e8ed}
 .logo-area{display:flex;align-items:center;gap:10px}
@@ -24,10 +25,10 @@ nav button.ativo{background:#00a86b;color:#fff}
 
 /* HERO SECTION (INÍCIO) */
 .hero{background:linear-gradient(135deg,#eef9f2,#e1f5fe);padding:25px 20px;border-radius:12px;margin:15px;display:flex;justify-content:space-between;align-items:center;box-shadow:0 4px 12px rgba(0,0,0,0.05)}
-.hero-content h2{font-size:24px;color:#0a3663;margin-bottom:8px}
-.hero-content p{font-size:12px;color:#444;line-height:1.5;max-width:550px;margin-bottom:12px}
+.hero-content h2{font-size:22px;color:#0a3663;margin-bottom:8px}
+.hero-content p{font-size:11px;color:#444;line-height:1.5;max-width:550px;margin-bottom:12px}
 .badge-info{display:inline-flex;align-items:center;gap:5px;background:#fff;padding:4px 10px;border-radius:20px;font-size:10px;color:#0073e6;border:1px solid #b3e5fc;font-weight:bold;margin-right:5px}
-.assistente-avatar{width:120px;filter:drop-shadow(0 5px 10px rgba(0,0,0,0.15))}
+.assistente-avatar{width:110px;filter:drop-shadow(0 5px 10px rgba(0,0,0,0.15))}
 
 .aviso-sus{margin:0 15px 15px 15px;font-size:10px;color:#666;display:flex;align-items:center;gap:5px}
 
@@ -44,7 +45,7 @@ nav button.ativo{background:#00a86b;color:#fff}
 .secao{display:none}
 .secao.ativa{display:block}
 
-/* ESTILO DAS OUTRAS SEÇÕES & GALERIAS */
+/* ESTILO DOS CARDS E GALERIAS */
 .card{background:#fff;margin:15px;padding:15px;border-radius:10px;box-shadow:0 3px 8px rgba(0,0,0,0.05);font-size:11px;line-height:1.5}
 .card h2{color:#0a3663;margin-bottom:10px;font-size:14px;border-bottom:2px solid #f0f0f0;padding-bottom:5px}
 .galeria-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));gap:10px;margin-top:10px}
@@ -56,10 +57,16 @@ nav button.ativo{background:#00a86b;color:#fff}
 iframe{width:100%;height:180px;border-radius:8px;border:none;margin-top:8px}
 .mapa{width:100%;height:220px;border:none;border-radius:8px;margin-top:8px}
 
-/* JOGO DA COBRINHA (VEGETAL) */
-.jogo-container{background:#111;padding:10px;border-radius:10px;text-align:center;margin-top:15px;color:#fff}
-canvas{background:#222;border:2px solid #00a86b;border-radius:6px;display:block;margin:10px auto}
-.placar{font-size:12px;color:#00a86b;font-weight:bold;margin-bottom:5px}
+/* JOGO DA COBRINHA 3D ESTILIZADO + CONFETES */
+.jogo-container{background:linear-gradient(135deg,#111,#1a2530);padding:15px;border-radius:12px;text-align:center;margin-top:15px;color:#fff;box-shadow:0 8px 20px rgba(0,0,0,0.3)}
+canvas{background:#0b0f15;border:3px solid #00a86b;border-radius:8px;display:block;margin:10px auto;box-shadow:inset 0 0 15px rgba(0,168,107,0.4)}
+.placar{font-size:13px;color:#00ff88;font-weight:bold;margin-bottom:5px}
+
+/* MODAL DE LOGIN */
+.modal-login{display:none;position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.6);z-index:999;justify-content:center;align-items:center}
+.modal-content{background:#fff;padding:20px;border-radius:12px;width:300px;text-align:center;box-shadow:0 5px 15px rgba(0,0,0,0.3)}
+.modal-content input{width:100%;padding:8px;margin:8px 0;border:1px solid #ccc;border-radius:6px;font-size:11px}
+.modal-content button{background:#00a86b;color:#fff;border:none;padding:8px 15px;border-radius:6px;cursor:pointer;font-weight:bold;font-size:11px;margin-top:5px}
 
 /* RODAPÉ GOV */
 footer{text-align:center;font-size:9px;color:#777;padding:15px;border-top:1px solid #ddd;margin-top:30px;background:#fff}
@@ -77,7 +84,18 @@ footer{text-align:center;font-size:9px;color:#777;padding:15px;border-top:1px so
 
 <div class="topo-gov">
   <div>🇧🇷 gov.br — <span>Saúde Digital e Integrada</span></div>
-  <div>Acessibilidade: <button onclick="alert('Modo Contraste Ativado')" style="font-size:9px;cursor:pointer">Contraste</button></div>
+  <div class="user-login-area" onclick="abrirLogin()" id="status-login">👤 Entrar na Conta</div>
+</div>
+
+<!-- MODAL DE LOGIN -->
+<div class="modal-login" id="modalLogin">
+  <div class="modal-content">
+    <h3 style="color:#0a3663; margin-bottom:10px">Acessar Conta SUS Virtual</h3>
+    <input type="text" id="nomeUsuario" placeholder="Digite seu nome completo">
+    <input type="email" id="emailUsuario" placeholder="Digite seu e-mail">
+    <button onclick="realizarLogin()">Entrar / Cadastrar</button>
+    <br><button onclick="fecharLogin()" style="background:#ccc; margin-top:6px">Fechar</button>
+  </div>
 </div>
 
 <header>
@@ -93,7 +111,7 @@ footer{text-align:center;font-size:9px;color:#777;padding:15px;border-top:1px so
 
 <nav>
   <button onclick="mudarAba('inicio')" id="btn-inicio" class="ativo">🏠 Início</button>
-  <button onclick="mudarAba('alimentacao')" id="btn-alimentacao">🥗 Alimentação & Jogo</button>
+  <button onclick="mudarAba('alimentacao')" id="btn-alimentacao">🥗 Alimentação & Jogo 3D</button>
   <button onclick="mudarAba('remedios')" id="btn-remedios">💊 Remédios</button>
   <button onclick="mudarAba('academia')" id="btn-academia">🏋️ Academia</button>
   <button onclick="mudarAba('mulher')" id="btn-mulher">👩 Saúde da Mulher</button>
@@ -101,7 +119,7 @@ footer{text-align:center;font-size:9px;color:#777;padding:15px;border-top:1px so
   <button onclick="mudarAba('mapa')" class="btn-emergencia">🚨 Emergência 24h</button>
 </nav>
 
-<!-- 1. INÍCIO (EXATAMENTE COMO NA SUA IMAGEM DE REFERÊNCIA) -->
+<!-- 1. INÍCIO -->
 <div id="inicio" class="secao ativa">
   <div class="hero">
     <div class="hero-content">
@@ -165,13 +183,13 @@ footer{text-align:center;font-size:9px;color:#777;padding:15px;border-top:1px so
   </div>
 </div>
 
-<!-- 2. ALIMENTAÇÃO COM FOTOS REAIS DOS ALIMENTOS + JOGO DA COBRINHA -->
+<!-- 2. ALIMENTAÇÃO + JOGO 3D DA COBRINHA -->
 <div id="alimentacao" class="secao">
   <div class="card">
     <h2>🥗 Guia Visual de Nutrição e Alimentos</h2>
-    <p>Conheça visualmente os grupos alimentares essenciais baseados em guias nutricionais:</p>
+    <p>Conheça visualmente os grupos alimentares essenciais:</p>
     
-    <h3 style="font-size:12px; color:#00a86b; margin-top:10px;">🥩 Fontes de Proteína (30g por porção)</h3>
+    <h3 style="font-size:12px; color:#00a86b; margin-top:10px;">🥩 Fontes de Proteína e Gorduras Boas</h3>
     <div class="galeria-grid">
       <div class="alimento-item">
         <img src="https://images.unsplash.com/photo-1604503468506-a8da13d82791?auto=format&fit=crop&w=300&q=80" alt="Frango">
@@ -182,18 +200,6 @@ footer{text-align:center;font-size:9px;color:#777;padding:15px;border-top:1px so
         <b>Ovos Cozidos</b><span>5 unidades médias</span>
       </div>
       <div class="alimento-item">
-        <img src="https://images.unsplash.com/photo-1519708227418-c8fd9a32b7a2?auto=format&fit=crop&w=300&q=80" alt="Salmão/Peixe">
-        <b>Atum / Peixe</b><span>23g proteína / 100g</span>
-      </div>
-      <div class="alimento-item">
-        <img src="https://images.unsplash.com/photo-1588166524941-3bf61a9c41db?auto=format&fit=crop&w=300&q=80" alt="Queijo Cottage">
-        <b>Queijo Cottage</b><span>Rico em caseína</span>
-      </div>
-    </div>
-
-    <h3 style="font-size:12px; color:#00a86b; margin-top:15px;">🥑 Gorduras Boas & Laticínios</h3>
-    <div class="galeria-grid">
-      <div class="alimento-item">
         <img src="https://images.unsplash.com/photo-1523049673857-eb18f1d7b578?auto=format&fit=crop&w=300&q=80" alt="Abacate">
         <b>Abacate</b><span>Gordura monoinsaturada</span>
       </div>
@@ -201,32 +207,12 @@ footer{text-align:center;font-size:9px;color:#777;padding:15px;border-top:1px so
         <img src="https://images.unsplash.com/photo-1474979266404-7eaacbcd87c5?auto=format&fit=crop&w=300&q=80" alt="Azeite">
         <b>Azeite de Oliva</b><span>Saúde cardiovascular</span>
       </div>
-      <div class="alimento-item">
-        <img src="https://images.unsplash.com/photo-1628088062854-d1870b4553da?auto=format&fit=crop&w=300&q=80" alt="Castanhas">
-        <b>Castanhas & Oleaginosas</b><span>Energia e minerais</span>
-      </div>
-      <div class="alimento-item">
-        <img src="https://images.unsplash.com/photo-1550583724-b2692b85b150?auto=format&fit=crop&w=300&q=80" alt="Iogurte">
-        <b>Iogurte Natural / Grego</b><span>Saúde intestinal</span>
-      </div>
     </div>
 
-    <h3 style="font-size:12px; color:#00a86b; margin-top:15px;">🥦 Verduras, Legumes & Frutas Frescas</h3>
-    <div class="galeria-grid">
-      <div class="alimento-item">
-        <img src="https://images.unsplash.com/photo-1540420773420-3366772f4999?auto=format&fit=crop&w=300&q=80" alt="Salada Verde">
-        <b>Folhas Verdes</b><span>Brócolis, Alface e Couve</span>
-      </div>
-      <div class="alimento-item">
-        <img src="https://images.unsplash.com/photo-1598170845058-32b9d6a5da37?auto=format&fit=crop&w=300&q=80" alt="Tomates e Legumes">
-        <b>Legumes Variados</b><span>Tomate, Cenoura e Pepino</span>
-      </div>
-    </div>
-
-    <!-- JOGO DA COBRINHA COMENDO VEGETAL -->
+    <!-- JOGO DA COBRINHA 3D COM CONFETES AO PASSAR DE 30 PONTOS -->
     <div class="jogo-container">
-      <h3>🎮 Joguinho da Cobrinha Saudável</h3>
-      <p style="font-size:9px; color:#aaa;">Ajude a cobrinha a comer os vegetais e manter a dieta em dia! Use as setas do teclado.</p>
+      <h3>🎮 Joguinho da Cobrinha 3D Saudável</h3>
+      <p style="font-size:9px; color:#aaa;">Coma os vegetais! Ultrapasse 30 pontos para ativar a super comemoração em confetes!</p>
       <div class="placar">Pontuação: <span id="pontos">0</span></div>
       <canvas id="stage" width="280" height="180"></canvas>
       <button onclick="iniciarJogo()" style="background:#00a86b;color:#fff;border:none;padding:5px 10px;border-radius:4px;cursor:pointer;font-size:10px;margin-top:5px">Reiniciar Jogo</button>
@@ -235,14 +221,29 @@ footer{text-align:center;font-size:9px;color:#777;padding:15px;border-top:1px so
   </div>
 </div>
 
-<!-- 3. REMÉDIOS -->
+<!-- 3. REMÉDIOS COM FOTOS -->
 <div id="remedios" class="secao">
   <div class="card">
-    <h2>💊 Medicamentos e Valores de Referência (Teresina PI)</h2>
-    <div style="background:#e9ffe9;padding:10px;border-radius:8px;border-left:4px solid #00a86b;">
-      <b>1. Analgésicos:</b> Dipirona, Paracetamol, Ibuprofeno (R$ 4 a R$ 15).<br><br>
-      <b>2. Pressão e Coração:</b> Losartana, Captopril, Enalapril (<b>Grátis</b> na Farmácia Popular ou R$ 5 a R$ 20).<br><br>
-      <b>3. Diabetes:</b> Metformina (Grátis / R$ 6 a R$ 18).
+    <h2>💊 Medicamentos e Valores de Referência</h2>
+    <p>Guia visual com os remédios mais buscados nas farmácias populares:</p>
+    
+    <div class="galeria-grid">
+      <div class="alimento-item">
+        <img src="https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?auto=format&fit=crop&w=300&q=80" alt="Analgésicos">
+        <b>Analgésicos</b><span>Dipirona e Paracetamol (R$ 4 - R$ 15)</span>
+      </div>
+      <div class="alimento-item">
+        <img src="https://images.unsplash.com/photo-1471864190281-a93a3070b6de?auto=format&fit=crop&w=300&q=80" alt="Anti-inflamatório">
+        <b>Anti-inflamatórios</b><span>Ibuprofeno e Nimesulida</span>
+      </div>
+      <div class="alimento-item">
+        <img src="https://images.unsplash.com/photo-1550572017-edd951b55104?auto=format&fit=crop&w=300&q=80" alt="Pressão">
+        <b>Pressão / Coração</b><span>Losartana (Grátis / SUS)</span>
+      </div>
+      <div class="alimento-item">
+        <img src="https://images.unsplash.com/photo-1576091160550-2173dba999ef?auto=format&fit=crop&w=300&q=80" alt="Estômago">
+        <b>Estômago</b><span>Omeprazol (R$ 10 - R$ 35)</span>
+      </div>
     </div>
   </div>
 </div>
@@ -256,15 +257,37 @@ footer{text-align:center;font-size:9px;color:#777;padding:15px;border-top:1px so
   </div>
 </div>
 
-<!-- 5. SAÚDE DA MULHER -->
+<!-- 5. SAÚDE DA MULHER (COSMÉTICOS + POSES DE AQUECIMENTO) -->
 <div id="mulher" class="secao">
   <div class="card">
-    <h2>👩 Orientações sobre Saúde da Mulher</h2>
-    <div style="background:#ffe0f0;padding:10px;border-radius:8px;border-left:4px solid #d81b60;">
-      <b>Cólica e TPM:</b> Alívio com compressas quentes, chás calmantes e magnésio.<br><br>
-      <b>Bem-estar Feminino:</b> Orientações especiais do Hospital Israelita Albert Einstein.
+    <h2>👩 Cuidados, Cosméticos e Aquecimento Feminino</h2>
+    <p>Orientações estéticas, cosméticos de saúde e poses de alongamento para o dia a dia:</p>
+    
+    <h3 style="font-size:12px; color:#d81b60; margin-top:10px;">💄 Cosméticos e Cuidados com a Pele</h3>
+    <div class="galeria-grid">
+      <div class="alimento-item">
+        <img src="https://images.unsplash.com/photo-1556228720-195a672e8a03?auto=format&fit=crop&w=300&q=80" alt="Skincare">
+        <b>Protetor Solar & Hidratante</b><span>Proteção diária e anti-idade</span>
+      </div>
+      <div class="alimento-item">
+        <img src="https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?auto=format&fit=crop&w=300&q=80" alt="Cosméticos">
+        <b>Vitaminas e Séruns</b><span>Nutrição profunda para a pele</span>
+      </div>
     </div>
-    <iframe src="https://www.youtube.com/embed/ohIS2C_FSw8" allowfullscreen></iframe>
+
+    <h3 style="font-size:12px; color:#d81b60; margin-top:15px;">🤸 Poses de Aquecimento e Alongamento</h3>
+    <div class="galeria-grid">
+      <div class="alimento-item">
+        <img src="https://images.unsplash.com/photo-1518611012118-696072aa579a?auto=format&fit=crop&w=300&q=80" alt="Alongamento">
+        <b>Alongamento de Coluna</b><span>Alívio de dores nas costas</span>
+      </div>
+      <div class="alimento-item">
+        <img src="https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?auto=format&fit=crop&w=300&q=80" alt="Yoga">
+        <b>Postura e Mobilidade</b><span>Flexibilidade e relaxamento</span>
+      </div>
+    </div>
+
+    <iframe style="margin-top:15px;" src="https://www.youtube.com/embed/ohIS2C_FSw8" allowfullscreen></iframe>
   </div>
 </div>
 
@@ -305,6 +328,24 @@ function mudarAba(idSecao) {
   document.getElementById('btn-' + idSecao).classList.add('ativo');
 }
 
+/* SISTEMA DE LOGIN */
+function abrirLogin() {
+  document.getElementById('modalLogin').style.display = 'flex';
+}
+function fecharLogin() {
+  document.getElementById('modalLogin').style.display = 'none';
+}
+function realizarLogin() {
+  const nome = document.getElementById('nomeUsuario').value;
+  if(!nome.trim()) {
+    alert('Por favor, digite seu nome.');
+    return;
+  }
+  document.getElementById('status-login').innerText = '👤 Olá, ' + nome;
+  fecharLogin();
+  alert('Login realizado com sucesso! Bem-vinda, ' + nome + '!');
+}
+
 function enviarMensagem() {
   const input = document.getElementById('chat-input');
   const body = document.getElementById('chat-body');
@@ -314,7 +355,7 @@ function enviarMensagem() {
   body.scrollTop = body.scrollHeight;
 }
 
-/* JOGO DA COBRINHA */
+/* JOGO DA COBRINHA 3D COM CONFETES */
 const canvas = document.getElementById('stage');
 const ctx = canvas.getContext('2d');
 document.addEventListener('keydown', keyPush);
@@ -323,6 +364,7 @@ let stageInterval;
 const tileSize = 14;
 const gridCount = 20;
 let score = 0;
+let comemorado30 = false;
 
 let snakeX = 10, snakeY = 10;
 let velocityX = 0, velocityY = 0;
@@ -337,6 +379,7 @@ function iniciarJogo() {
   trail = [];
   tailSize = 3;
   score = 0;
+  comemorado30 = false;
   document.getElementById('pontos').innerText = score;
   posicionarFruta();
   stageInterval = setInterval(gameLoop, 110);
@@ -351,22 +394,32 @@ function gameLoop() {
   if (snakeY < 0) snakeY = gridCount - 1;
   if (snakeY > gridCount - 1) snakeY = 0;
 
-  ctx.fillStyle = "#222";
+  // Visual 3D estilo gradiente no fundo do canvas
+  let bgGrad = ctx.createLinearGradient(0, 0, canvas.width, canvas.height);
+  bgGrad.addColorStop(0, "#0b0f15");
+  bgGrad.addColorStop(1, "#16222a");
+  ctx.fillStyle = bgGrad;
   ctx.fillRect(0, 0, canvas.width, canvas.height);
 
-  // Desenhar Vegetal (Fruta)
-  ctx.fillStyle = "#00ff66";
+  // Desenhar Fruta 3D (Brilhante)
+  ctx.fillStyle = "#00ffcc";
+  ctx.shadowColor = "#00ffcc";
+  ctx.shadowBlur = 8;
   ctx.beginPath();
   ctx.arc((fruitX * tileSize) + tileSize/2, (fruitY * tileSize) + tileSize/2, tileSize/2 - 1, 0, 2 * Math.PI);
   ctx.fill();
+  ctx.shadowBlur = 0; // reset sombra
 
-  // Desenhar Cobra
-  ctx.fillStyle = "#00a86b";
+  // Desenhar Cobra 3D
   for (let i = 0; i < trail.length; i++) {
-    ctx.fillRect(trail[i].x * tileSize, trail[i].y * tileSize, tileSize - 2, tileSize - 2);
+    ctx.fillStyle = i === trail.length - 1 ? "#00ff88" : "#00a86b";
+    ctx.fillRect(trail[i].x * tileSize + 1, trail[i].y * tileSize + 1, tileSize - 3, tileSize - 3);
+    
     if (trail[i].x === snakeX && trail[i].y === snakeY && (velocityX !== 0 || velocityY !== 0)) {
       tailSize = 3;
       score = 0;
+      comemorado30 = false;
+      document.getElementById('pontos').innerText = score;
     }
   }
 
@@ -380,6 +433,12 @@ function gameLoop() {
     score += 10;
     document.getElementById('pontos').innerText = score;
     posicionarFruta();
+
+    // COMEMORAÇÃO EM CONFETES SE PASSAR DE 30 PONTOS
+    if (score >= 30 && !comemorado30) {
+      comemorado30 = true;
+      dispararConfetes();
+    }
   }
 }
 
@@ -390,22 +449,42 @@ function posicionarFruta() {
 
 function keyPush(evt) {
   switch(evt.keyCode) {
-    case 37: // Esquerda
-      if(velocityX === 1) break;
-      velocityX = -1; velocityY = 0; break;
-    case 38: // Cima
-      if(velocityY === 1) break;
-      velocityX = 0; velocityY = -1; break;
-    case 39: // Direita
-      if(velocityX === -1) break;
-      velocityX = 1; velocityY = 0; break;
-    case 40: // Baixo
-      if(velocityY === -1) break;
-      velocityX = 0; velocityY = 1; break;
+    case 37: if(velocityX === 1) break; velocityX = -1; velocityY = 0; break;
+    case 38: if(velocityY === 1) break; velocityX = 0; velocityY = -1; break;
+    case 39: if(velocityX === -1) break; velocityX = 1; velocityY = 0; break;
+    case 40: if(velocityY === -1) break; velocityX = 0; velocityY = 1; break;
   }
 }
 
-// Iniciar o jogo automaticamente ao carregar
+/* FUNÇÃO DE CONFETES NA TELA */
+function dispararConfetes() {
+  alert('🎉 PARABÉNS! Você passou de 30 pontos na Cobrinha Saudável! 🎉');
+  for(let i=0; i<60; i++) {
+    let confete = document.createElement('div');
+    confete.style.position = 'fixed';
+    confete.style.left = Math.random() * window.innerWidth + 'px';
+    confete.style.top = '-10px';
+    confete.style.width = '8px';
+    confete.style.height = '8px';
+    confete.style.backgroundColor = ['#00ff88','#ff0055','#00ccff','#ffff00','#ff6600'][Math.floor(Math.random()*5)];
+    confete.style.zIndex = '9999';
+    confete.style.borderRadius = '50%';
+    confete.style.transition = 'top 2s ease-in, left 2s ease-out, transform 2s';
+    document.body.appendChild(confete);
+
+    setTimeout(() => {
+      confete.style.top = window.innerHeight + 'px';
+      confete.style.left = (parseFloat(confete.style.left) + (Math.random()*100 - 50)) + 'px';
+      confete.style.transform = 'rotate(720deg)';
+    }, 50);
+
+    setTimeout(() => {
+      confete.remove();
+    }, 2050);
+  }
+}
+
+// Iniciar jogo automaticamente
 posicionarFruta();
 stageInterval = setInterval(gameLoop, 110);
 </script>
