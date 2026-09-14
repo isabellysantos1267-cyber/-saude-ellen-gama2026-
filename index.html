@@ -1,253 +1,282 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Saúde e Bem-Estar das Pessoas Virtual - Bel-DS</title>
 <style>
-*{margin:0;box-sizing:border-box;font-family:Arial,sans-serif}
-body{background:#f0f4f8;padding-bottom:70px}
+:root{--primary:#00a86b;--secondary:#0073e6;--dark:#0a3663;--bg:#f4f7fa;--card-bg:#ffffff}
+*{margin:0;box-sizing:border-box;font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif}
+body{background:var(--bg);color:#333;padding-bottom:80px}
 
-/* TOPO GOV.BR */
-.topo-gov{background:#fff;border-bottom:1px solid #ddd;padding:4px 15px;font-size:11px;display:flex;justify-content:space-between;align-items:center;color:#333}
-.topo-gov span{color:#0073e6;font-weight:bold}
+/* TOPO GOV */
+.topo-gov{background:#fff;border-bottom:1px solid #e1e8ed;padding:6px 15px;font-size:11px;display:flex;justify-content:space-between;align-items:center;color:#444}
+.topo-gov span{color:var(--secondary);font-weight:bold}
 
-header{background:#fff;padding:12px 20px;display:flex;justify-content:space-between;align-items:center;border-bottom:2px solid #e1e8ed}
-.logo-area{display:flex;align-items:center;gap:10px}
-.logo-icon{background:#00a86b;color:#fff;width:35px;height:35px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:18px}
-.logo-text h1{font-size:16px;color:#0a3663;font-weight:bold}
-.logo-text p{font-size:10px;color:#555}
+header{background:#fff;padding:15px 20px;display:flex;justify-content:space-between;align-items:center;border-bottom:3px solid #e1e8ed;box-shadow:0 2px 5px rgba(0,0,0,0.02)}
+.logo-area{display:flex;align-items:center;gap:12px}
+.logo-icon{width:45px;height:45px;border-radius:50%;object-fit:cover;border:2px solid var(--primary);box-shadow:0 2px 6px rgba(0,0,0,0.1)}
+.logo-text h1{font-size:15px;color:var(--dark);font-weight:800;letter-spacing:0.5px}
+.logo-text p{font-size:9px;color:#666;font-weight:600;text-transform:uppercase}
 
-nav{display:flex;gap:6px;padding:8px 15px;background:#fff;overflow-x:auto;border-bottom:1px solid #ddd;align-items:center}
-nav button{padding:6px 12px;border-radius:15px;background:#e2f0d9;color:#2d6a4f;font-weight:bold;font-size:11px;white-space:nowrap;border:none;cursor:pointer}
-nav button.ativo{background:#00a86b;color:#fff}
-.btn-emergencia{background:#ffebee!important;color:#c62828!important;border:1px solid #ef9a9a!important}
+/* MENU DE NAVEGAÇÃO */
+nav{display:flex;gap:8px;padding:10px 15px;background:#fff;overflow-x:auto;border-bottom:1px solid #ddd;align-items:center;box-shadow:0 4px 6px rgba(0,0,0,0.02)}
+nav::-webkit-scrollbar{height:4px}
+nav::-webkit-scrollbar-thumb{background:#ccc;border-radius:4px}
+nav button{padding:8px 14px;border-radius:20px;background:#eef9f2;color:#2d6a4f;font-weight:700;font-size:11px;white-space:nowrap;border:1px solid #c8e6c9;cursor:pointer;transition:all 0.2s}
+nav button:hover{background:#d4edda}
+nav button.ativo{background:var(--primary);color:#fff;border-color:var(--primary);box-shadow:0 2px 6px rgba(0,168,107,0.3)}
+.btn-emergencia{background:#ffebee!important;color:#c62828!important;border-color:#ef9a9a!important}
+.btn-emergencia:hover{background:#ffcdd2!important}
 
-/* HERO SECTION (INÍCIO) COM A BEL-DS */
-.hero{background:linear-gradient(135deg,#eef9f2,#e1f5fe);padding:25px 20px;border-radius:12px;margin:15px;display:flex;justify-content:space-between;align-items:center;box-shadow:0 4px 12px rgba(0,0,0,0.05)}
-.hero-content h2{font-size:22px;color:#0a3663;margin-bottom:8px}
-.hero-content p{font-size:12px;color:#444;line-height:1.5;max-width:520px;margin-bottom:12px}
-.badge-info{display:inline-flex;align-items:center;gap:5px;background:#fff;padding:4px 10px;border-radius:20px;font-size:10px;color:#0073e6;border:1px solid #b3e5fc;font-weight:bold;margin-right:5px;margin-bottom:4px}
-.bel-avatar{width:130px;height:130px;border-radius:50%;object-fit:cover;border:3px solid #00a86b;box-shadow:0 4px 10px rgba(0,0,0,0.15)}
-
-.aviso-sus{margin:0 15px 15px 15px;font-size:10px;color:#666;display:flex;align-items:center;gap:5px}
-
-/* GRID DE BOTÕES DE AÇÃO */
-.acoes-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px;margin:15px}
-.acao-card{background:#fff;padding:15px;border-radius:10px;box-shadow:0 2px 6px rgba(0,0,0,0.06);border-left:4px solid #00a86b;cursor:pointer;transition:0.2s}
-.acao-card:hover{transform:translateY(-2px)}
-.acao-card h3{font-size:12px;color:#0a3663;margin-bottom:4px;display:flex;align-items:center;gap:6px}
-.acao-card p{font-size:10px;color:#666}
-.card-azul{border-left-color:#0073e6}
-.card-rosa{border-left-color:#d81b60}
-.card-vermelho{border-left-color:#c62828;background:#fff5f5}
-
+/* SEÇÃO INÍCIO (HERO) */
 .secao{display:none}
-.secao.ativa{display:block}
+.secao.ativa{display:block;animation:fadeIn 0.3s ease-in-out}
+@keyframes fadeIn{from{opacity:0;transform:translateY(4px)}to{opacity:1;transform:translateY(0)}}
 
-/* ESTILO DAS OUTRAS SEÇÕES & GALERIAS */
-.card{background:#fff;margin:15px;padding:15px;border-radius:10px;box-shadow:0 3px 8px rgba(0,0,0,0.05);font-size:11px;line-height:1.5}
-.card h2{color:#0a3663;margin-bottom:10px;font-size:14px;border-bottom:2px solid #f0f0f0;padding-bottom:5px}
-.galeria-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));gap:10px;margin-top:10px}
-.alimento-item{background:#f8f9fa;border:1px solid #e1e8ed;border-radius:8px;padding:8px;text-align:center}
-.alimento-item img{width:100%;height:90px;object-fit:cover;border-radius:6px;margin-bottom:5px}
-.alimento-item b{font-size:11px;color:#333;display:block}
+.hero{background:linear-gradient(135deg,#eef9f2,#e1f5fe);padding:25px 20px;border-radius:16px;margin:15px;display:flex;justify-content:space-between;align-items:center;box-shadow:0 6px 15px rgba(0,0,0,0.04);border:1px solid #d0e1fd}
+.hero-content h2{font-size:20px;color:var(--dark);margin-bottom:8px;font-weight:800}
+.hero-content p{font-size:12px;color:#444;line-height:1.6;max-width:520px;margin-bottom:12px}
+.badge-info{display:inline-flex;align-items:center;gap:5px;background:#fff;padding:5px 12px;border-radius:20px;font-size:10px;color:var(--secondary);border:1px solid #b3e5fc;font-weight:bold;margin-right:6px;margin-bottom:6px;box-shadow:0 1px 3px rgba(0,0,0,0.03)}
+.bel-avatar{width:110px;height:110px;border-radius:50%;object-fit:cover;border:4px solid #fff;box-shadow:0 6px 16px rgba(0,0,0,0.15)}
+
+.aviso-sus{margin:0 15px 15px 15px;font-size:10px;color:#555;background:#fffde7;padding:10px 14px;border-radius:8px;border-left:4px solid #fbc02d;display:flex;align-items:center;gap:8px;box-shadow:0 2px 5px rgba(0,0,0,0.02)}
+
+/* GRID DE CARTÕES DE AÇÃO */
+.acoes-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px;margin:15px}
+.acao-card{background:var(--card-bg);padding:16px;border-radius:12px;box-shadow:0 3px 10px rgba(0,0,0,0.04);border-left:5px solid var(--primary);cursor:pointer;transition:transform 0.2s, box-shadow 0.2s;border-top:1px solid #eee;border-right:1px solid #eee;border-bottom:1px solid #eee}
+.acao-card:hover{transform:translateY(-3px);box-shadow:0 6px 15px rgba(0,0,0,0.08)}
+.acao-card h3{font-size:12px;color:var(--dark);margin-bottom:5px;display:flex;align-items:center;gap:8px;font-weight:700}
+.acao-card p{font-size:10px;color:#666;line-height:1.4}
+.card-azul{border-left-color:var(--secondary)}
+.card-rosa{border-left-color:#d81b60}
+.card-vermelho{border-left-color:#c62828;background:#fffafa}
+
+/* ESTILOS GERAIS DE CARTÕES E CONTEÚDOS */
+.card{background:var(--card-bg);margin:15px;padding:20px;border-radius:14px;box-shadow:0 4px 12px rgba(0,0,0,0.04);font-size:11px;line-height:1.6;border:1px solid #eaeaea}
+.card h2{color:var(--dark);margin-bottom:12px;font-size:15px;border-bottom:2px solid #f0f4f8;padding-bottom:8px;font-weight:800;display:flex;align-items:center;gap:8px}
+
+/* GALERIAS E IMAGENS EM TODOS OS TÓPICOS */
+.galeria-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:12px;margin-top:12px}
+.alimento-item{background:#fafbfc;border:1px solid #e1e8ed;border-radius:10px;padding:10px;text-align:center;transition:0.2s}
+.alimento-item:hover{border-color:var(--primary);box-shadow:0 3px 10px rgba(0,0,0,0.05)}
+.alimento-item img{width:100%;height:100px;object-fit:cover;border-radius:8px;margin-bottom:8px}
+.alimento-item b{font-size:11px;color:var(--dark);display:block;margin-bottom:2px}
 .alimento-item span{font-size:9px;color:#666}
 
-iframe{width:100%;height:180px;border-radius:8px;border:none;margin-top:8px}
-.mapa{width:100%;height:220px;border:none;border-radius:8px;margin-top:8px}
+/* SEÇÃO DE EXERCÍCIOS / REMÉDIOS / MULHER COM IMAGENS DESTAQUE */
+.topico-banner{width:100%;height:150px;object-fit:cover;border-radius:10px;margin-bottom:12px;box-shadow:0 2px 8px rgba(0,0,0,0.08)}
+.conteudo-flex{display:flex;gap:15px;flex-wrap:wrap;align-items:center}
+.conteudo-flex img{width:100%;max-width:240px;height:150px;object-fit:cover;border-radius:8px;box-shadow:0 2px 6px rgba(0,0,0,0.1)}
 
-/* JOGO DA COBRINHA (VEGETAL) */
-.jogo-container{background:#111;padding:10px;border-radius:10px;text-align:center;margin-top:15px;color:#fff}
-canvas{background:#222;border:2px solid #00a86b;border-radius:6px;display:block;margin:10px auto}
-.placar{font-size:12px;color:#00a86b;font-weight:bold;margin-bottom:5px}
+/* JOGO DA COBRINHA */
+.jogo-container{background:#111;padding:15px;border-radius:12px;text-align:center;margin-top:20px;color:#fff;box-shadow:inset 0 0 15px rgba(0,0,0,0.8);border:2px solid #333}
+.jogo-container h3{color:#00ff66;font-size:13px;margin-bottom:4px}
+canvas{background:#181818;border:2px solid var(--primary);border-radius:8px;display:block;margin:10px auto;box-shadow:0 4px 10px rgba(0,0,0,0.5)}
+.placar{font-size:13px;color:#00ff66;font-weight:bold;margin-bottom:8px}
+.btn-jogo{background:var(--primary);color:#fff;border:none;padding:6px 14px;border-radius:6px;cursor:pointer;font-size:10px;font-weight:bold;transition:0.2s}
+.btn-jogo:hover{background:#008754}
 
-/* RODAPÉ GOV */
-footer{text-align:center;font-size:9px;color:#777;padding:15px;border-top:1px solid #ddd;margin-top:30px;background:#fff}
+/* MAPA E IFRAMES */
+iframe{width:100%;height:200px;border-radius:10px;border:none;margin-top:10px;box-shadow:0 2px 6px rgba(0,0,0,0.05)}
 
-/* ASSISTENTE VIRTUAL FLUTUANTE COM A BEL-DS */
-.assistente{position:fixed;bottom:10px;right:10px;width:280px;background:#fff;border-radius:12px;box-shadow:0 6px 20px rgba(0,0,0,0.2);z-index:200;overflow:hidden;border:1px solid #b3e5fc}
-.assistente-header{background:linear-gradient(90deg,#00a86b,#0073e6);color:#fff;padding:8px;font-size:10px;font-weight:bold;display:flex;justify-content:space-between;align-items:center}
-.assistente-body{padding:8px;max-height:150px;overflow-y:auto;font-size:10px;line-height:1.4;display:flex;gap:6px;align-items:flex-start}
-.assistente-body img{width:30px;height:30px;border-radius:50%;object-fit:cover;border:1px solid #00a86b;flex-shrink:0}
-.assistente-input{display:flex;padding:6px;border-top:1px solid #eee;background:#f9f9f9}
-.assistente-input input{flex:1;padding:6px;border-radius:6px;border:1px solid #ccc;font-size:10px}
-.assistente-input button{margin-left:4px;padding:6px 10px;border:none;border-radius:6px;background:#00a86b;color:#fff;font-weight:bold;font-size:10px;cursor:pointer}
+/* ASSISTENTE FLUTUANTE */
+.assistente{position:fixed;bottom:15px;right:15px;width:300px;background:#fff;border-radius:14px;box-shadow:0 8px 25px rgba(0,0,0,0.25);z-index:200;overflow:hidden;border:1px solid #b3e5fc}
+.assistente-header{background:linear-gradient(90deg,var(--primary),var(--secondary));color:#fff;padding:10px 12px;font-size:11px;font-weight:bold;display:flex;justify-content:space-between;align-items:center}
+.assistente-body{padding:10px;max-height:160px;overflow-y:auto;font-size:10px;line-height:1.5;display:flex;gap:8px;align-items:flex-start;background:#fafbfc}
+.assistente-body img{width:32px;height:32px;border-radius:50%;object-fit:cover;border:1px solid var(--primary);flex-shrink:0}
+.assistente-input{display:flex;padding:8px;border-top:1px solid #eee;background:#fff}
+.assistente-input input{flex:1;padding:7px 10px;border-radius:6px;border:1px solid #ccc;font-size:10px;outline:none}
+.assistente-input input:focus{border-color:var(--secondary)}
+.assistente-input button{margin-left:6px;padding:7px 12px;border:none;border-radius:6px;background:var(--primary);color:#fff;font-weight:bold;font-size:10px;cursor:pointer}
+
+/* RODAPÉ */
+footer{text-align:center;font-size:10px;color:#777;padding:20px;border-top:1px solid #e1e8ed;margin-top:40px;background:#fff}
 </style>
 </head>
 <body>
 
 <div class="topo-gov">
-  <div>🇧🇷 gov.br — <span>Saúde Digital e Integrada</span></div>
-  <div>Acessibilidade: <button onclick="alert('Modo Contraste Ativado')" style="font-size:9px;cursor:pointer">Contraste</button></div>
+  <div>🇧🇷 gov.br — <span>Portal de Saúde Digital e Integrada</span></div>
+  <div>Acessibilidade: <button onclick="alert('Modo Contraste Ativado com sucesso!')" style="font-size:9px;cursor:pointer;padding:2px 6px;border-radius:4px;border:1px solid #ccc">Contraste</button></div>
 </div>
 
 <header>
   <div class="logo-area">
-    <div class="logo-icon">❤️</div>
+    <!-- IMAGEM DA MASCOTE BEL-DS NO LOGO -->
+    <img src="IMG-20260914-WA8026.jpg" alt="Mascote Bel-DS" class="logo-icon" onerror="this.src='https://images.unsplash.com/photo-1543852786-1cf6624b9987?auto=format&fit=crop&w=100&q=80'">
     <div class="logo-text">
       <h1>SAÚDE E BEM-ESTAR</h1>
-      <p>DAS PESSOAS VIRTUAL</p>
+      <p>DAS PESSOAS VIRTUAL • BEL-DS</p>
     </div>
   </div>
-  <div style="font-size:11px;color:#0073e6;font-weight:bold">Ellen Gama 2026 - Teresina PI</div>
+  <div style="font-size:11px;color:var(--secondary);font-weight:bold;background:#e1f5fe;padding:5px 10px;border-radius:8px">Ellen Gama 2026 • Teresina-PI</div>
 </header>
 
 <nav>
   <button onclick="mudarAba('inicio')" id="btn-inicio" class="ativo">🏠 Início</button>
   <button onclick="mudarAba('alimentacao')" id="btn-alimentacao">🥗 Alimentação & Jogo</button>
   <button onclick="mudarAba('remedios')" id="btn-remedios">💊 Remédios</button>
-  <button onclick="mudarAba('academia')" id="btn-academia">🏋️ Academia</button>
+  <button onclick="mudarAba('academia')" id="btn-academia">🏋️ Academia & Saúde</button>
   <button onclick="mudarAba('mulher')" id="btn-mulher">👩 Saúde da Mulher</button>
   <button onclick="mudarAba('mapa')" id="btn-mapa">🗺️ Mapa Teresina</button>
   <button onclick="mudarAba('mapa')" class="btn-emergencia">🚨 Emergência 24h</button>
 </nav>
 
-<!-- 1. INÍCIO COM A BEL-DS -->
+<!-- 1. INÍCIO -->
 <div id="inicio" class="secao ativa">
   <div class="hero">
     <div class="hero-content">
       <h2>Assistente Virtual de Saúde 24h</h2>
-      <p>Olá! Eu sou a <b>Bel-DS</b>, sua assistente inteligente. Fale comigo para entender receitas, buscar medicamentos com o menor preço, interpretar seus exames e cuidar da sua saúde física e mental.</p>
+      <p>Olá! Eu sou a <b>Bel-DS</b>, sua mascote e assistente inteligente. Fale comigo para entender receitas, comparar preços de medicamentos, analisar exames e cuidar da sua qualidade de vida com carinho e precisão.</p>
       <div>
         <span class="badge-info">✔️ 100% Gratuito e Seguro</span>
         <span class="badge-info">🔊 Inclusivo • Libras e Áudio</span>
+        <span class="badge-info">🐾 Atendimento Humanizado</span>
       </div>
     </div>
     <div>
-      <!-- Usando a imagem da Bel-DS -->
-      <img src="IMG-20260914-WA8026.jpg" alt="Bel-DS Assistente" class="bel-avatar">
+      <img src="IMG-20260914-WA8026.jpg" alt="Bel-DS Mascote" class="bel-avatar" onerror="this.src='https://images.unsplash.com/photo-1543852786-1cf6624b9987?auto=format&fit=crop&w=300&q=80'">
     </div>
   </div>
 
   <div class="aviso-sus">
-    ⚠️ Este serviço apoia, não substitui o atendimento médico presencial. Em emergência ligue 192 (SAMU).
+    <span>⚠️</span> Este serviço apoia, mas não substitui o atendimento médico presencial. Em caso de emergência grave, ligue imediatamente para o 192 (SAMU).
   </div>
 
-  <div style="margin: 0 15px; font-weight:bold; font-size:13px; color:#0a3663">Como podemos ajudar você hoje?</div>
+  <div style="margin: 0 15px; font-weight:800; font-size:13px; color:var(--dark)">Como a Bel-DS pode ajudar você hoje?</div>
 
   <div class="acoes-grid">
     <div class="acao-card" onclick="mudarAba('alimentacao')">
       <h3>🎤 FALAR COM A BEL-DS</h3>
-      <p>Fale e receba resposta por voz</p>
+      <p>Fale por voz e receba orientações instantâneas sobre bem-estar.</p>
     </div>
-    <div class="acao-card card-azul" onclick="alert('Lendo tela em voz alta...')">
-      <h3>🔊 OUVIR TELA</h3>
-      <p>Leia a página em áudio</p>
+    <div class="acao-card card-azul" onclick="alert('Sistema ativado: Lendo conteúdo da tela em voz alta para você...')">
+      <h3>🔊 OUVIR TELA EM ÁUDIO</h3>
+      <p>Acessibilidade completa para leitura guiada do portal.</p>
     </div>
     <div class="acao-card" onclick="mudarAba('remedios')">
-      <h3>📷 ENVIAR RECEITA</h3>
-      <p>Envie foto e receba explicação</p>
+      <h3>📷 ENVIAR RECEITA MÉDICA</h3>
+      <p>Envie a foto da sua receita para explicações detalhadas de uso.</p>
     </div>
     <div class="acao-card card-azul" onclick="mudarAba('remedios')">
-      <h3>💊 BUSCAR PREÇO MAIS BARATO</h3>
-      <p>Compare preços de remédios</p>
+      <h3>💊 BUSCAR MENOR PREÇO</h3>
+      <p>Compare valores de medicamentos na rede popular de Teresina.</p>
     </div>
-    <div class="acao-card" onclick="alert('Área de exames: Envie o laudo para leitura.')">
+    <div class="acao-card" onclick="alert('Área de exames: Envie seu laudo digital para interpretação.')">
       <h3>📄 ENTENDER MEU EXAME</h3>
-      <p>Explique resultados do exame</p>
+      <p>Traduza termos médicos complexos em orientações claras.</p>
     </div>
     <div class="acao-card card-rosa" onclick="mudarAba('mulher')">
       <h3>🌸 SAÚDE DA MULHER</h3>
-      <p>Ciclo, pré-natal e cuidados</p>
+      <p>Acompanhamento de ciclo, pré-natal e saúde preventiva.</p>
     </div>
-    <div class="acao-card card-azul" onclick="mudarAba('mulher')">
-      <h3>🧠 PRECISO CONVERSAR</h3>
-      <p>Apoio em saúde mental 24h</p>
+    <div class="acao-card card-azul" onclick="mudarAba('academia')">
+      <h3>🧠 APOIO EM SAÚDE MENTAL</h3>
+      <p>Dicas de relaxamento, meditação e suporte emocional 24h.</p>
     </div>
     <div class="acao-card card-vermelho" onclick="mudarAba('mapa')">
-      <h3>🚨 PRECISO DE AJUDA AGORA</h3>
-      <p>Orientações de emergência</p>
+      <h3>🚨 URGÊNCIA E HOSPITAIS</h3>
+      <p>Encontre postos de atendimento e prontos-socorros próximos.</p>
     </div>
   </div>
 </div>
 
-<!-- 2. ALIMENTAÇÃO + FOTOS REAIS + JOGO DA COBRINHA -->
+<!-- 2. ALIMENTAÇÃO & JOGO DA COBRINHA -->
 <div id="alimentacao" class="secao">
   <div class="card">
-    <h2>🥗 Guia Visual de Nutrição e Alimentos</h2>
-    <p>Conheça visualmente os grupos alimentares essenciais baseados em guias nutricionais:</p>
+    <h2>🥗 Guia Visual de Nutrição e Alimentos Saudáveis</h2>
+    <p>Conheça os grupos alimentares essenciais baseados em diretrizes nutricionais para manter a energia e a imunidade em alta:</p>
     
-    <h3 style="font-size:12px; color:#00a86b; margin-top:10px;">🥩 Fontes de Proteína (30g por porção)</h3>
+    <h3 style="font-size:12px; color:var(--primary); margin-top:14px;">🥩 Fontes de Proteína de Alta Qualidade</h3>
     <div class="galeria-grid">
       <div class="alimento-item">
         <img src="https://images.unsplash.com/photo-1604503468506-a8da13d82791?auto=format&fit=crop&w=300&q=80" alt="Frango">
-        <b>Peito de Frango</b><span>30g proteína / 100g</span>
+        <b>Peito de Frango</b><span>Rico em proteína magra</span>
       </div>
       <div class="alimento-item">
         <img src="https://images.unsplash.com/photo-1546069901-ba9599a7e63c?auto=format&fit=crop&w=300&q=80" alt="Ovos">
-        <b>Ovos Cozidos</b><span>5 unidades médias</span>
+        <b>Ovos Cozidos</b><span>Nutrição completa</span>
       </div>
       <div class="alimento-item">
-        <img src="https://images.unsplash.com/photo-1519708227418-c8fd9a32b7a2?auto=format&fit=crop&w=300&q=80" alt="Salmão/Peixe">
-        <b>Atum / Peixe</b><span>23g proteína / 100g</span>
+        <img src="https://images.unsplash.com/photo-1519708227418-c8fd9a32b7a2?auto=format&fit=crop&w=300&q=80" alt="Peixe">
+        <b>Atum / Peixe Fresco</b><span>Ômega 3 essencial</span>
       </div>
       <div class="alimento-item">
-        <img src="https://images.unsplash.com/photo-1588166524941-3bf61a9c41db?auto=format&fit=crop&w=300&q=80" alt="Queijo Cottage">
-        <b>Queijo Cottage</b><span>Rico em caseína</span>
+        <img src="https://images.unsplash.com/photo-1588166524941-3bf61a9c41db?auto=format&fit=crop&w=300&q=80" alt="Queijo">
+        <b>Queijo Cottage</b><span>Cálcio e proteínas</span>
       </div>
     </div>
 
-    <h3 style="font-size:12px; color:#00a86b; margin-top:15px;">🥑 Gorduras Boas & Laticínios</h3>
+    <h3 style="font-size:12px; color:var(--primary); margin-top:16px;">🥑 Gorduras Boas & Laticínios Funcionais</h3>
     <div class="galeria-grid">
       <div class="alimento-item">
         <img src="https://images.unsplash.com/photo-1523049673857-eb18f1d7b578?auto=format&fit=crop&w=300&q=80" alt="Abacate">
-        <b>Abacate</b><span>Gordura monoinsaturada</span>
+        <b>Abacate Fresco</b><span>Gorduras monoinsaturadas</span>
       </div>
       <div class="alimento-item">
         <img src="https://images.unsplash.com/photo-1474979266404-7eaacbcd87c5?auto=format&fit=crop&w=300&q=80" alt="Azeite">
-        <b>Azeite de Oliva</b><span>Saúde cardiovascular</span>
+        <b>Azeite Extra Virgem</b><span>Saúde cardiovascular</span>
       </div>
       <div class="alimento-item">
         <img src="https://images.unsplash.com/photo-1628088062854-d1870b4553da?auto=format&fit=crop&w=300&q=80" alt="Castanhas">
-        <b>Castanhas & Oleaginosas</b><span>Energia e minerais</span>
+        <b>Oleaginosas</b><span>Vitaminas e minerais</span>
       </div>
       <div class="alimento-item">
         <img src="https://images.unsplash.com/photo-1550583724-b2692b85b150?auto=format&fit=crop&w=300&q=80" alt="Iogurte">
-        <b>Iogurte Natural / Grego</b><span>Saúde intestinal</span>
+        <b>Iogurte Natural</b><span>Probióticos intestinais</span>
       </div>
     </div>
 
-    <h3 style="font-size:12px; color:#00a86b; margin-top:15px;">🥦 Verduras, Legumes & Frutas Frescas</h3>
+    <h3 style="font-size:12px; color:var(--primary); margin-top:16px;">🥦 Verduras, Legumes & Frutas Frescas</h3>
     <div class="galeria-grid">
       <div class="alimento-item">
-        <img src="https://images.unsplash.com/photo-1540420773420-3366772f4999?auto=format&fit=crop&w=300&q=80" alt="Salada Verde">
+        <img src="https://images.unsplash.com/photo-1540420773420-3366772f4999?auto=format&fit=crop&w=300&q=80" alt="Verduras">
         <b>Folhas Verdes</b><span>Brócolis, Alface e Couve</span>
       </div>
       <div class="alimento-item">
-        <img src="https://images.unsplash.com/photo-1598170845058-32b9d6a5da37?auto=format&fit=crop&w=300&q=80" alt="Tomates e Legumes">
+        <img src="https://images.unsplash.com/photo-1598170845058-32b9d6a5da37?auto=format&fit=crop&w=300&q=80" alt="Legumes">
         <b>Legumes Variados</b><span>Tomate, Cenoura e Pepino</span>
       </div>
     </div>
 
-    <!-- JOGO DA COBRINHA COMENDO VEGETAL -->
+    <!-- JOGO DA COBRINHA COMENDO VEGETAL (TOTALMENTE FUNCIONAL) -->
     <div class="jogo-container">
       <h3>🎮 Joguinho da Cobrinha Saudável (Comendo Vegetais)</h3>
-      <p style="font-size:9px; color:#aaa;">Ajude a cobrinha a comer os vegetais e manter a dieta em dia! Use as setas do teclado.</p>
+      <p style="font-size:9px; color:#aaa; margin-bottom:6px;">Ajude a cobrinha a coletar os vegetais frescos e manter a dieta equilibrada! Use as setas do teclado.</p>
       <div class="placar">Pontuação: <span id="pontos">0</span></div>
       <canvas id="stage" width="280" height="180"></canvas>
-      <button onclick="iniciarJogo()" style="background:#00a86b;color:#fff;border:none;padding:5px 10px;border-radius:4px;cursor:pointer;font-size:10px;margin-top:5px">Reiniciar Jogo</button>
+      <button class="btn-jogo" onclick="iniciarJogo()">🔄 Reiniciar Jogo</button>
     </div>
-
   </div>
 </div>
 
 <!-- 3. REMÉDIOS -->
 <div id="remedios" class="secao">
   <div class="card">
-    <h2>💊 Medicamentos e Valores de Referência (Teresina PI)</h2>
-    <div style="background:#e9ffe9;padding:10px;border-radius:8px;border-left:4px solid #00a86b;">
-      <b>1. Analgésicos:</b> Dipirona, Paracetamol, Ibuprofeno (R$ 4 a R$ 15).<br><br>
-      <b>2. Pressão e Coração:</b> Losartana, Captopril, Enalapril (<b>Grátis</b> na Farmácia Popular ou R$ 5 a R$ 20).<br><br>
-      <b>3. Diabetes:</b> Metformina (Grátis / R$ 6 a R$ 18).
+    <h2>💊 Guia de Medicamentos e Valores de Referência (Teresina-PI)</h2>
+    <img src="https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?auto=format&fit=crop&w=800&q=80" alt="Farmácia e Remédios" class="topico-banner">
+    <div style="background:#e9ffe9;padding:12px;border-radius:10px;border-left:5px solid var(--primary); margin-top:10px;">
+      <b>1. Analgésicos & Antitérmicos:</b> Dipirona 500mg, Paracetamol, Ibuprofeno (Média de R$ 4,00 a R$ 15,00 nas redes populares).<br><br>
+      <b>2. Hipertensão & Pressão Arterial:</b> Losartana Potássica, Captopril, Enalapril (<b>Grátis</b> pelo programa Farmácia Popular ou R$ 5 a R$ 20).<br><br>
+      <b>3. Diabetes & Controle Glicêmico:</b> Cloridrato de Metformina 850mg (Disponível gratuitamente em postos de saúde ou R$ 6 a R$ 18).
     </div>
   </div>
 </div>
 
-<!-- 4. ACADEMIA -->
+<!-- 4. ACADEMIA & SAÚDE -->
 <div id="academia" class="secao">
   <div class="card">
-    <h2>🏋️ Treinos e Fortalecimento Muscular</h2>
-    <p>Vídeo prático para realizar exercícios de fortalecimento com segurança:</p>
+    <h2>🏋️ Treinos, Fortalecimento Muscular e Bem-Estar</h2>
+    <div class="conteudo-flex">
+      <img src="https://images.unsplash.com/photo-1517838277536-f5f99be501cd?auto=format&fit=crop&w=500&q=80" alt="Treino e Saúde">
+      <div style="flex:1; min-width:200px;">
+        <p style="margin-bottom:8px;">A atividade física regular previne doenças crônicas, melhora a disposição mental e fortalece ossos e articulações. Realize exercícios orientados com constância.</p>
+        <span class="badge-info">✔️ 30 minutos diários recomendados</span>
+        <span class="badge-info">💧 Hidratação constante</span>
+      </div>
+    </div>
+    <p style="margin-top:14px; font-weight:bold;">Vídeo prático para realizar exercícios de fortalecimento em casa com segurança:</p>
     <iframe src="https://www.youtube.com/embed/OjUDpzMw6gM" allowfullscreen></iframe>
   </div>
 </div>
@@ -255,33 +284,44 @@ footer{text-align:center;font-size:9px;color:#777;padding:15px;border-top:1px so
 <!-- 5. SAÚDE DA MULHER -->
 <div id="mulher" class="secao">
   <div class="card">
-    <h2>👩 Orientações sobre Saúde da Mulher</h2>
-    <div style="background:#ffe0f0;padding:10px;border-radius:8px;border-left:4px solid #d81b60;">
-      <b>Cólica e TPM:</b> Alívio com compressas quentes, chás calmantes e magnésio.<br><br>
-      <b>Bem-estar Feminino:</b> Orientações especiais do Hospital Israelita Albert Einstein.
+    <h2>👩 Orientações Dedicadas à Saúde da Mulher</h2>
+    <div class="conteudo-flex">
+      <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=500&q=80" alt="Saúde da Mulher">
+      <div style="flex:1; min-width:200px; background:#fff0f5; padding:12px; border-radius:10px; border-left:4px solid #d81b60;">
+        <b>Cuidados Preventivos Essenciais:</b><br>
+        • Exames de rotina (Mamografia e Papanicolau anual).<br>
+        • Alívio de cólicas e TPM com hidratação, chás e magnésio.<br>
+        • Apoio psicológico e acolhimento especializado 24h.
+      </div>
     </div>
+    <p style="margin-top:14px; font-weight:bold;">Orientações especiais sobre bem-estar e prevenção:</p>
     <iframe src="https://www.youtube.com/embed/ohIS2C_FSw8" allowfullscreen></iframe>
   </div>
 </div>
 
-<!-- 6. MAPA DE TERESINA -->
+<!-- 6. MAPA & EMERGÊNCIA -->
 <div id="mapa" class="secao">
   <div class="card">
-    <h2>🗺️ Hospitais e Atendimento em Teresina - PI</h2>
+    <h2>🗺️ Hospitais, Clínicas e Atendimento de Urgência em Teresina - PI</h2>
     <iframe class="mapa" src="https://www.openstreetmap.org/export/embed.html?bbox=-42.88%2C-5.12%2C-42.72%2C-5.05&layer=mapnik&marker=-5.08921%2C-42.8016"></iframe>
-    <p style="margin-top:8px; font-size:10px;"><b>Hospitais de Referência:</b> HGV (Frei Serafim), HUT (Primavera), São Marcos (Miguel Rosa).</p>
+    <div style="background:#fff3e0; padding:12px; border-radius:10px; border-left:5px solid #fb8c00; margin-top:12px;">
+      <b>Principais Referências de Saúde em Teresina:</b><br>
+      • <b>HGV</b> (Hospital Getúlio Vargas - Av. Frei Serafim)<br>
+      • <b>HUT</b> (Hospital de Urgência de Teresina - Bairro Primavera)<br>
+      • <b>Hospital São Marcos</b> (Rua Miguel Rosa - Centro)
+    </div>
   </div>
 </div>
 
-<!-- ASSISTENTE VIRTUAL FLUTUANTE COM A BEL-DS -->
+<!-- ASSISTENTE FLUTUANTE COM A BEL-DS -->
 <div class="assistente">
   <div class="assistente-header">
-    <span>🤖 Bel-DS - Assistente 24h</span>
-    <span style="cursor:pointer" onclick="document.querySelector('.assistente').style.display='none'">✖</span>
+    <span>🤖 Bel-DS • Assistente 24h</span>
+    <span style="cursor:pointer; font-size:12px;" onclick="document.querySelector('.assistente').style.display='none'">✖</span>
   </div>
   <div class="assistente-body" id="chat-body">
-    <img src="IMG-20260914-WA8026.jpg" alt="Bel-DS">
-    <div>Olá! Sou a Bel-DS, sua assistente virtual de saúde. Como posso ajudar na sua apresentação hoje?</div>
+    <img src="IMG-20260914-WA8026.jpg" alt="Bel-DS" onerror="this.src='https://images.unsplash.com/photo-1543852786-1cf6624b9987?auto=format&fit=crop&w=100&q=80'">
+    <div>Olá! Sou a <b>Bel-DS</b>, sua mascote de saúde. Como posso ajudar na sua apresentação hoje?</div>
   </div>
   <div class="assistente-input">
     <input type="text" id="chat-input" placeholder="Digite sua dúvida...">
@@ -290,7 +330,7 @@ footer{text-align:center;font-size:9px;color:#777;padding:15px;border-top:1px so
 </div>
 
 <footer>
-  Ministério da Saúde • SUS Digital • LGPD conforme • Disponível 24h em Teresina - PI
+  Ministério da Saúde • SUS Digital • Desenvolvido por Ellen Gama • Teresina - PI (2026)
 </footer>
 
 <script>
@@ -300,18 +340,19 @@ function mudarAba(idSecao) {
   
   document.getElementById(idSecao).classList.add('ativa');
   document.getElementById('btn-' + idSecao).classList.add('ativo');
+  window.scrollTo({top: 0, behavior: 'smooth'});
 }
 
 function enviarMensagem() {
   const input = document.getElementById('chat-input');
   const body = document.getElementById('chat-body');
   if(!input.value.trim()) return;
-  body.innerHTML += `<div style="margin-top:6px"><b>Você:</b> ${input.value}<br><b>Bel-DS:</b> Informações consultadas com sucesso para a apresentação da Ellen Gama!</div>`;
+  body.innerHTML += `<div style="margin-top:6px"><b>Você:</b> ${input.value}<br><b>Bel-DS:</b> Informações consultadas com sucesso para a apresentação da Ellen Gama! 🐾</div>`;
   input.value = '';
   body.scrollTop = body.scrollHeight;
 }
 
-/* JOGO DA COBRINHA */
+/* JOGO DA COBRINHA OTIMIZADO E FUNCIONAL */
 const canvas = document.getElementById('stage');
 const ctx = canvas.getContext('2d');
 document.addEventListener('keydown', keyPush);
@@ -330,37 +371,39 @@ let fruitX = 5, fruitY = 5;
 function iniciarJogo() {
   clearInterval(stageInterval);
   snakeX = 10; snakeY = 10;
-  velocityX = 0; velocityY = 0;
+  velocityX = 1; velocityY = 0; // Começa movendo para a direita
   trail = [];
   tailSize = 3;
   score = 0;
   document.getElementById('pontos').innerText = score;
   posicionarFruta();
-  stageInterval = setInterval(gameLoop, 110);
+  stageInterval = setInterval(gameLoop, 100);
 }
 
 function gameLoop() {
   snakeX += velocityX;
   snakeY += velocityY;
 
+  // Atravessar paredes
   if (snakeX < 0) snakeX = gridCount - 1;
   if (snakeX > gridCount - 1) snakeX = 0;
   if (snakeY < 0) snakeY = gridCount - 1;
   if (snakeY > gridCount - 1) snakeY = 0;
 
-  ctx.fillStyle = "#222";
+  // Limpar tela
+  ctx.fillStyle = "#181818";
   ctx.fillRect(0, 0, canvas.width, canvas.height);
 
   // Desenhar Vegetal (Fruta)
   ctx.fillStyle = "#00ff66";
   ctx.beginPath();
-  ctx.arc((fruitX * tileSize) + tileSize/2, (fruitY * tileSize) + tileSize/2, tileSize/2 - 1, 0, 2 * Math.PI);
+  ctx.arc((fruitX * tileSize) + tileSize/2, (fruitY * tileSize) + tileSize/2, tileSize/2 - 2, 0, 2 * Math.PI);
   ctx.fill();
 
   // Desenhar Cobra
   ctx.fillStyle = "#00a86b";
   for (let i = 0; i < trail.length; i++) {
-    ctx.fillRect(trail[i].x * tileSize, trail[i].y * tileSize, tileSize - 2, tileSize - 2);
+    ctx.fillRect(trail[i].x * tileSize + 1, trail[i].y * tileSize + 1, tileSize - 2, tileSize - 2);
     if (trail[i].x === snakeX && trail[i].y === snakeY && (velocityX !== 0 || velocityY !== 0)) {
       tailSize = 3;
       score = 0;
@@ -372,6 +415,7 @@ function gameLoop() {
     trail.shift();
   }
 
+  // Comer Fruta
   if (snakeX === fruitX && snakeY === fruitY) {
     tailSize++;
     score += 10;
@@ -389,22 +433,22 @@ function keyPush(evt) {
   switch(evt.keyCode) {
     case 37: // Esquerda
       if(velocityX === 1) break;
-      velocityX = -1; velocityY = 0; break;
+      velocityX = -1; velocityY = 0; evt.preventDefault(); break;
     case 38: // Cima
       if(velocityY === 1) break;
-      velocityX = 0; velocityY = -1; break;
+      velocityX = 0; velocityY = -1; evt.preventDefault(); break;
     case 39: // Direita
       if(velocityX === -1) break;
-      velocityX = 1; velocityY = 0; break;
+      velocityX = 1; velocityY = 0; evt.preventDefault(); break;
     case 40: // Baixo
       if(velocityY === -1) break;
-      velocityX = 0; velocityY = 1; break;
+      velocityX = 0; velocityY = 1; evt.preventDefault(); break;
   }
 }
 
-// Iniciar o jogo automaticamente ao carregar
+// Iniciar jogo automaticamente
 posicionarFruta();
-stageInterval = setInterval(gameLoop, 110);
+stageInterval = setInterval(gameLoop, 100);
 </script>
 
 </body>
